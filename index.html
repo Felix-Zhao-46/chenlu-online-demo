@@ -1,0 +1,2176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex, nofollow">
+  <title>辰陆集团 · 客户与团队工作台</title>
+  <style>/* A local, simulated workspace. Keep client conversation and internal actions distinct. */
+:root {
+  --ink: #192c2c;
+  --muted: #52665f;
+  --line: #e2e8e5;
+  --control-line: #b6c6bd;
+  --green: #087e69;
+  --green-text: #066a59;
+  --teal: #074d42;
+  --mint: #e7f5ef;
+  --bg: #f2f5f2;
+  --amber: #825719;
+  --amber-bg: #fff5df;
+  --amber-line: #e4cf9e;
+  --danger: #9b382d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  font-size: 16px;
+  font-synthesis: none;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); line-height: 1.55; }
+button, input, textarea, select { font: inherit; }
+button { min-height: 44px; cursor: pointer; border: 0; background: none; color: inherit; padding: 8px 12px; line-height: 1.4; transition: background-color 150ms, border-color 150ms, color 150ms; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid #158574; outline-offset: 3px; }
+button:disabled { opacity: .5; cursor: default; }
+a { color: var(--green-text); }
+svg { width: 24px; height: 24px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+h1, h2, h3, h4, p { overflow-wrap: anywhere; }
+h1 { font-size: 24px; line-height: 1.35; letter-spacing: -.45px; margin: 7px 0 8px; font-weight: 650; }
+h2 { font-size: 20px; line-height: 1.4; font-weight: 650; }
+h3 { font-size: 16px; font-weight: 650; }
+input, textarea, select { min-height: 44px; padding: 10px 12px; color: var(--ink); background: white; border: 1px solid var(--control-line); border-radius: 7px; font-size: 14px; max-width: 100%; }
+textarea { resize: vertical; line-height: 1.65; }
+summary { cursor: pointer; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.demo-disclosure { min-height: 36px; padding: 7px 16px; background: var(--teal); color: #eff9f4; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; font-size: 12px; line-height: 1.5; }
+.live-dot, .online-dot { width: 7px; height: 7px; border-radius: 50%; background: #a0dfbd; flex-shrink: 0; }
+.disclosure-detail { margin-left: 10px; }
+.app-shell { display: grid; grid-template-columns: 200px minmax(0, 1fr); align-items: start; min-height: calc(100vh - 36px); }
+.app-nav { position: sticky; top: 0; height: 100vh; padding: 25px 12px 18px; background: #fff; border-right: 1px solid var(--line); display: flex; flex-direction: column; }
+.brand { display: flex; align-items: center; gap: 9px; padding: 0 7px; }
+.brand-symbol { width: 38px; height: 38px; background: var(--teal); color: #fff; border-radius: 10px; display: grid; place-items: center; font-size: 24px; font-weight: 750; position: relative; flex-shrink: 0; }
+.brand-symbol span { font-size: 16px; position: absolute; right: 3px; top: 0; }
+.brand b { display: block; font-size: 17px; letter-spacing: 1.3px; line-height: 1.4; }
+.brand div > span { display: block; font-size: 12px; color: var(--muted); line-height: 1.3; }
+.nav-heading { color: var(--muted); font-size: 12px; margin: 35px 12px 10px; }
+.view-tabs { display: flex; flex-direction: column; gap: 7px; }
+.view-tabs button { width: 100%; display: flex; align-items: center; gap: 10px; padding: 12px 10px; border-radius: 8px; border: 1px solid transparent; text-align: left; font-size: 15px; color: var(--muted); min-height: 70px; }
+.view-tabs button span { min-width: 0; }
+.view-tabs button small { display: block; font-size: 12px; line-height: 1.45; font-weight: 400; margin-top: 4px; }
+.view-tabs button:hover { background: #f3f7f4; }
+.view-tabs button.active { background: var(--mint); border-color: #cde5d8; color: var(--green-text); font-weight: 650; }
+.nav-bottom { display: flex; align-items: center; gap: 9px; margin-top: auto; padding: 16px 5px 0; border-top: 1px solid var(--line); }
+.nav-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--teal); color: white; display: grid; place-items: center; flex-shrink: 0; }
+.nav-bottom strong { display: block; font-size: 14px; }
+.nav-bottom div > span { display: block; color: var(--muted); font-size: 12px; }
+.nav-bottom .online-dot { margin-left: auto; background: var(--green); }
+.app-main { min-width: 0; }
+.topbar { min-height: 68px; padding: 10px 28px; background: #fff; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.breadcrumb { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+.breadcrumb > span { color: #82938a; }
+.breadcrumb strong { color: var(--ink); font-weight: 550; }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.plain { color: var(--muted); font-size: 14px; border-radius: 6px; }
+.plain:hover { background: var(--bg); }
+.outline { border: 1px solid var(--control-line); border-radius: 7px; background: white; font-size: 14px; }
+.outline:hover:not(:disabled) { background: #f4f8f5; border-color: var(--green); }
+.small { font-size: 14px; }
+.primary { background: var(--green); color: white; border: 1px solid var(--green); border-radius: 7px; padding: 11px 16px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-size: 14px; font-weight: 650; }
+.primary:hover:not(:disabled) { background: #066a59; border-color: #066a59; }
+.primary > span { font-size: 18px; font-weight: 400; }
+.secondary { background: var(--mint); color: var(--green-text); border: 1px solid #bfdccb; border-radius: 7px; font-size: 14px; font-weight: 550; }
+.secondary:hover:not(:disabled) { background: #d8eee2; }
+.danger { color: var(--danger); }
+.full { width: 100%; }
+.icon-btn { min-width: 44px; font-size: 26px; border-radius: 6px; color: var(--muted); }
+main { max-width: 1880px; padding: 26px 28px 12px; margin: 0 auto; }
+.page-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+.eyebrow { font-size: 12px; letter-spacing: 1.6px; color: var(--green-text); font-weight: 650; }
+.page-heading p { font-size: 14px; color: var(--muted); margin: 0; max-width: 740px; }
+#view-context { flex-shrink: 0; font-size: 12px; color: var(--muted); }
+.context-pill { display: inline-block; border: 1px solid #d8e2dc; background: #fff; padding: 8px 11px; border-radius: 6px; }
+.walkthrough { background: #fff; border: 1px solid var(--line); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 17px 18px; margin-bottom: 18px; }
+.control-label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 12px; }
+.steps { display: flex; align-items: center; gap: 22px; }
+.step { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.step-num { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #cbd8d0; color: var(--muted); display: grid; place-items: center; flex-shrink: 0; font-size: 12px; font-variant-numeric: tabular-nums; }
+.step b { display: block; font-size: 14px; font-weight: 550; white-space: nowrap; }
+.step small { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.step.active .step-num { background: var(--green); color: #fff; border-color: var(--green); }
+.step.active b { color: var(--green-text); }
+.step.done .step-num { background: var(--mint); color: var(--green-text); border-color: #bfdccb; }
+.step-action { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; flex-shrink: 0; }
+.step-action > span { font-size: 12px; color: var(--muted); max-width: 230px; }
+.step-action button { white-space: nowrap; }
+.workspace { background: #fff; border: 1px solid #d8e2da; border-radius: 10px; overflow: hidden; }
+.workspace-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.chat-layout { display: grid; grid-template-columns: 200px minmax(0, 1fr) 320px; min-height: 680px; align-items: stretch; }
+.contact-list { min-width: 0; background: #fff; border-right: 1px solid var(--line); padding: 20px 12px; }
+.section-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 14px; font-weight: 650; margin-bottom: 14px; }
+.section-title small { font-size: 12px; font-weight: 400; color: var(--muted); }
+.count { font-size: 12px; background: #ecf3ee; color: var(--green-text); padding: 2px 7px; border-radius: 5px; }
+.search-label { border: 1px solid var(--line); border-radius: 7px; padding: 11px 9px; color: var(--muted); font-size: 12px; line-height: 1.55; margin-bottom: 15px; display: flex; align-items: flex-start; gap: 6px; }
+.contact-list > select { margin-bottom: 13px; }
+.contact { width: 100%; text-align: left; display: flex; align-items: flex-start; gap: 8px; border-radius: 7px; padding: 12px 7px; margin-bottom: 6px; border: 1px solid transparent; }
+.contact.active { background: var(--mint); border-color: #d0e4d7; }
+.contact:hover:not(.active) { background: #f5f8f5; }
+.avatar { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #e3ece5; color: #385b46; font-size: 14px; font-weight: 600; }
+.avatar.green { background: #ccebdc; color: var(--green-text); }
+.contact-details { min-width: 0; flex: 1; }
+.contact-details b { display: block; font-size: 14px; font-weight: 550; }
+.contact-details p { font-size: 12px; color: var(--muted); margin: 4px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.contact-details > span { font-size: 12px; color: var(--green-text); display: block; }
+.contact-tag { font-size: 12px; line-height: 1.3; color: var(--green-text); background: #d0e9d9; padding: 3px 5px; border-radius: 4px; flex-shrink: 0; }
+.source-block { background: #f2f6f2; padding: 12px; border-radius: 7px; margin-top: 20px; }
+.source-block small { color: var(--muted); font-size: 12px; }
+.source-block strong { display: block; font-size: 14px; margin: 6px 0; }
+.source-block p { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 0; }
+.list-note { border-top: 1px solid var(--line); padding-top: 15px; margin-top: 20px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.chat-pane { min-width: 0; display: flex; flex-direction: column; background: #efeae2; }
+.section-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 14px; padding: 13px 18px; background: #fff; border-bottom: 1px solid var(--line); }
+.section-header strong { font-size: 14px; }
+.section-header > span { color: var(--muted); font-size: 12px; }
+.chat-head { min-height: 80px; display: flex; align-items: center; gap: 11px; padding: 14px 18px; background: #f0f2f5; flex-shrink: 0; }
+.chat-head > div:not(.right) { min-width: 0; }
+.chat-head b { display: block; font-size: 16px; font-weight: 600; }
+.chat-head small { display: block; font-size: 12px; line-height: 1.5; color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
+.chat-head .right { margin-left: auto; flex-shrink: 0; }
+.toggle { background: #fff; border: 1px solid var(--control-line); border-radius: 6px; padding: 8px 10px; color: var(--muted); font-size: 12px; white-space: nowrap; }
+.toggle:hover { background: var(--mint); }
+.chat-subline { background: #e3ede5; color: #365a47; font-size: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; padding: 9px 18px; flex-shrink: 0; }
+.chat-subline strong { font-weight: 600; }
+.pause-banner { background: var(--amber-bg); color: var(--amber); border-bottom: 1px solid var(--amber-line); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 9px; font-size: 14px; flex-shrink: 0; }
+.pause-banner button { background: var(--amber); color: #fff; padding: 9px 12px; border-radius: 6px; font-size: 14px; flex-shrink: 0; }
+.messages { background-color: #efeae2; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='90' viewBox='0 0 120 90'%3E%3Cg fill='none' stroke='%23aab7a7' stroke-width='.8' opacity='.18'%3E%3Cpath d='M10 15l12 5-8 12zM72 60q7-10 14 0t14 0M70 10h15v13H70zM15 75q0-8 8-8t8 8M48 42l6 6-6 6-6-6z'/%3E%3Ccircle cx='108' cy='32' r='6'/%3E%3C/g%3E%3C/svg%3E"); padding: 20px 24px 28px; flex: 1; min-height: 390px; height: 530px; max-height: 670px; overflow-y: auto; overscroll-behavior: contain; }
+.date-tag { display: table; background: #fffffff2; color: var(--muted); border-radius: 5px; padding: 5px 10px; margin: 0 auto 20px; font-size: 12px; }
+.bubble { position: relative; background: #fff; width: fit-content; max-width: 91%; padding: 10px 12px 7px; margin: 0 auto 13px 0; border-radius: 0 8px 8px 8px; box-shadow: 0 1px 1px #20332419; font-size: 16px; line-height: 1.6; overflow-wrap: anywhere; animation: arrive 160ms ease-out; }
+.bubble::before { content: ""; position: absolute; left: -7px; top: 0; border-top: 8px solid #fff; border-left: 8px solid transparent; }
+.bubble.out { background: #d9fdd3; border-radius: 8px 0 8px 8px; margin-left: auto; margin-right: 0; }
+.bubble.out::before { left: auto; right: -7px; border-left: 0; border-right: 8px solid transparent; border-top-color: #d9fdd3; }
+.bubble .speaker { color: #3d6b40; font-size: 12px; font-weight: 650; margin-bottom: 4px; }
+.translation { color: var(--muted); font-size: 14px; line-height: 1.7; border-top: 1px solid #49694b21; padding-top: 7px; margin-top: 8px; white-space: pre-wrap; }
+.bubble .meta { display: flex; justify-content: flex-end; align-items: center; gap: 7px; color: #4e6a56; font-size: 12px; line-height: 1.3; margin-top: 5px; }
+.ticks { color: #1877a1; letter-spacing: -3px; padding-right: 3px; }
+.reply-sources { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 5px 7px; margin: -5px 0 17px auto; max-width: 92%; padding: 8px 10px; background: #fffaf0; border: 1px solid var(--amber-line); border-radius: 6px; font-size: 12px; }
+.reply-sources > span { color: var(--amber); width: 100%; text-align: right; }
+.source-chip { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; max-width: 100%; border: 1px solid var(--control-line); border-radius: 6px; background: #fff; padding: 7px 9px; color: var(--green-text); font-size: 12px; text-align: left; overflow-wrap: anywhere; }
+.source-chip:hover { background: var(--mint); border-color: var(--green); }
+.source-chip small { font-size: 12px; white-space: nowrap; color: var(--muted); }
+.typing { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; color: #3d6b40; font-size: 14px; }
+.typing i { width: 5px; height: 5px; border-radius: 50%; background: #668c6d; animation: pulse 1s infinite; }
+.typing i:nth-child(2) { animation-delay: 150ms; }
+.typing i:nth-child(3) { animation-delay: 300ms; }
+.empty-chat { min-height: 360px; padding: 26px 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; color: #395f4f; }
+.empty-symbol { width: 72px; height: 64px; background: #fff9; border: 1px solid #fff; border-radius: 18px; font-size: 34px; display: grid; place-items: center; margin-bottom: 17px; }
+.empty-chat h3 { font-size: 18px; margin: 0 0 10px; }
+.empty-chat p { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 340px; margin: 0; }
+.chat-compose { display: flex; align-items: center; gap: 10px; padding: 13px 16px; background: #f0f2f5; border-top: 1px solid #dde5df; flex-shrink: 0; }
+.compose-placeholder { flex: 1; min-width: 0; padding: 12px; background: #fff; border-radius: 7px; color: var(--muted); font-size: 14px; }
+.chat-compose button { flex-shrink: 0; font-size: 14px; }
+.scenario-option { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 5px 10px; padding: 10px 16px; border-top: 1px solid #d7e3d8; background: #f7fbf6; }
+.scenario-option > span { color: var(--muted); font-size: 12px; }
+.scenario-option button { border: 1px solid #bfd6c7; border-radius: 6px; color: var(--green-text); background: #fff; font-size: 12px; }
+.side-panel { background: #fafcf9; border-left: 1px solid var(--line); padding: 18px; min-width: 0; }
+.side-panel h3 { margin: 0; font-size: 16px; }
+.section-kicker { display: block; font-size: 12px; color: var(--muted); letter-spacing: .7px; margin-bottom: 5px; }
+.panel-block { border: 1px solid var(--line); border-radius: 8px; padding: 15px 13px; margin-bottom: 14px; background: #fff; }
+.panel-block:last-of-type { margin-bottom: 14px; }
+.panel-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 12px; }
+.panel-heading h3 { margin: 0; }
+.block-hint { font-size: 12px; color: var(--muted); line-height: 1.6; margin: 0; }
+.internal-block { background: #fffaf0; border-color: var(--amber-line); }
+.internal-block .panel-heading h3 { color: var(--amber); }
+.internal-block .guidance-card { margin-bottom: 0; }
+.badge { display: inline-block; max-width: 100%; padding: 4px 7px; border-radius: 4px; font-size: 12px; line-height: 1.45; font-weight: 500; vertical-align: middle; }
+.badge.green { color: var(--green-text); background: var(--mint); }
+.badge.amber { color: var(--amber); background: var(--amber-bg); }
+.badge.gray { color: var(--muted); background: #edf2ee; }
+.field-grid { margin: 13px 0 0; }
+.field-row { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid #e9eee9; font-size: 14px; line-height: 1.55; }
+.field-row dt { color: var(--muted); }
+.field-row dd { margin: 0; overflow-wrap: anywhere; font-weight: 500; }
+.field-row .missing { color: var(--muted); font-weight: 400; }
+.field-row.changed dd { color: var(--amber); background: var(--amber-bg); border-radius: 4px; padding: 2px 4px; }
+.version { border: 1px solid #c4d6c9; color: #486958; border-radius: 4px; font-size: 12px; padding: 2px 5px; }
+.inline-note { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 10px 0; }
+.signal-box { background: #eef7f0; border: 1px solid #d5e7db; border-radius: 7px; padding: 12px; margin: 10px 0 3px; }
+.signal-box b { color: var(--green-text); font-size: 14px; }
+.signal-box ul { color: #3e5f4c; font-size: 14px; padding-left: 18px; margin: 8px 0 0; line-height: 1.8; }
+.owner-box { display: flex; align-items: center; gap: 10px; padding: 7px 0 12px; }
+.owner-box b { font-size: 14px; display: block; }
+.owner-box small { font-size: 12px; color: var(--muted); display: block; margin-top: 3px; }
+.task { font-size: 14px; line-height: 1.65; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.task-head { display: flex; align-items: flex-start; gap: 7px; }
+.task-icon { color: var(--muted); flex-shrink: 0; }
+.task.done .task-icon { color: var(--green-text); }
+.task small { display: block; font-size: 12px; color: var(--muted); margin: 5px 0 0 21px; }
+.text-btn { color: var(--green-text); font-size: 14px; text-align: left; padding: 10px 0; min-height: 44px; }
+.text-btn:hover { text-decoration: underline; }
+.guidance-card { border: 1px solid var(--amber-line); border-radius: 7px; background: var(--amber-bg); padding: 12px; margin: 12px 0; }
+.guidance-card h4 { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; color: var(--amber); font-size: 14px; margin: 0 0 8px; }
+.guidance-card p { color: #654f2d; font-size: 14px; line-height: 1.8; white-space: pre-wrap; margin: 0; }
+.guidance-card small { color: #6e614a; font-size: 12px; display: block; margin-top: 8px; }
+.guidance-card button { color: var(--amber); border: 1px solid #bea779; border-radius: 6px; background: #fffdf7; font-size: 14px; margin-top: 10px; }
+.date-form { margin-top: 15px; }
+.date-form label { display: block; font-size: 14px; font-weight: 550; margin-bottom: 7px; }
+.date-form > div { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.date-form input { width: 100%; min-width: 0; font-size: 14px; }
+.date-form button { border: 1px solid #bfd6c7; background: var(--mint); border-radius: 6px; color: var(--green-text); font-size: 14px; width: 100%; }
+.knowledge-context { display: flex; flex-direction: column; gap: 7px; }
+.context-doc { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; border: 1px solid var(--line); background: #f8faf7; border-radius: 6px; padding: 10px; font-size: 14px; }
+.context-doc span { overflow-wrap: anywhere; }
+.context-doc small { font-size: 12px; color: var(--muted); }
+.context-doc:hover { background: var(--mint); border-color: #bad9c6; }
+.sales-tools { border-top: 1px solid #d7e2d8; padding: 15px 16px; background: #f8fbf7; }
+.draft-copy { background: #fff; border: 1px solid var(--control-line); border-radius: 7px; padding: 12px; }
+.draft-copy label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+.draft-copy textarea { width: 100%; border: 0; border-radius: 0; padding: 0; min-height: 125px; font-size: 16px; line-height: 1.6; }
+.zh-preview { font-size: 14px; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); margin-top: 9px; padding-top: 9px; }
+.draft-actions { display: flex; align-items: center; justify-content: space-between; gap: 9px; margin-top: 12px; }
+.draft-actions > span { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.draft-actions button { flex-shrink: 0; }
+.manager { background: #f6f8f5; padding: 22px; }
+.manager-header { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 20px; }
+.manager-header h2 { font-size: 22px; margin: 6px 0 8px; }
+.manager-header p { color: var(--muted); font-size: 14px; margin: 0; }
+.manager-person { display: flex; align-items: center; gap: 10px; flex-shrink: 0; font-size: 14px; }
+.manager-person .avatar { color: #fff; background: var(--teal); }
+.manager-person small { color: var(--muted); font-size: 12px; display: block; margin-top: 3px; }
+.team-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px; }
+.team-card { text-align: left; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 13px 10px; }
+.team-card:hover { border-color: #96bda6; background: #fcfefb; }
+.team-card.active { border-color: var(--green); box-shadow: inset 0 0 0 1px var(--green); background: #f6fcf8; }
+.team-card-top { display: flex; align-items: center; gap: 7px; }
+.team-card .avatar { width: 30px; height: 30px; font-size: 14px; }
+.team-card b { font-size: 14px; }
+.team-card small { font-size: 12px; line-height: 1.5; color: var(--muted); display: block; margin-top: 3px; }
+.team-counts { display: flex; justify-content: space-between; gap: 8px; margin-top: 14px; }
+.team-counts strong { display: block; font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.team-counts span { display: block; font-size: 12px; color: var(--muted); margin-top: 3px; }
+.team-card-foot { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 13px; font-size: 12px; color: var(--muted); line-height: 1.55; }
+.team-card-foot.attention { color: var(--amber); }
+.manager-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: start; gap: 18px; }
+.manager-grid > div { min-width: 0; }
+.manager-table { background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; }
+.table-head { padding: 13px 15px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.table-head strong { font-size: 14px; }
+.table-head button { color: var(--green-text); font-size: 14px; }
+table { border-collapse: collapse; width: 100%; text-align: left; min-width: 535px; }
+th { padding: 12px 11px; background: #f7faf6; color: var(--muted); font-size: 12px; font-weight: 550; white-space: nowrap; }
+td { padding: 13px 11px; border-top: 1px solid var(--line); font-size: 14px; vertical-align: top; }
+td strong { display: block; font-size: 14px; font-weight: 550; }
+td small { display: block; color: var(--muted); font-size: 12px; margin-top: 5px; }
+tr.selected td { background: #edf7f0; }
+td button { color: var(--green-text); font-size: 14px; white-space: nowrap; padding: 7px 0; }
+.manager-detail { min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.detail-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--line); padding: 15px; }
+.detail-heading strong { display: block; font-size: 16px; }
+.detail-heading small { display: block; color: var(--muted); font-size: 12px; line-height: 1.7; margin-top: 5px; }
+.detail-heading .badge { flex-shrink: 0; }
+.detail-tabs { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0 12px; background: #fff; border-bottom: 1px solid var(--line); padding: 0 14px; }
+.detail-tabs button { border-bottom: 2px solid transparent; padding: 10px 3px; color: var(--muted); font-size: 14px; }
+.detail-tabs button.active { color: var(--green-text); border-color: var(--green); font-weight: 550; }
+.compact-chat { min-height: 300px; height: 350px; max-height: 450px; padding: 18px 22px; }
+.compact-chat .bubble { font-size: 16px; }
+.detail-task-area { min-height: 260px; max-height: 400px; overflow-y: auto; padding: 12px 18px; }
+.guidance-form { padding: 16px; background: #fffaf0; border-top: 1px solid var(--amber-line); }
+.guidance-form .section-title { color: var(--amber); margin-bottom: 10px; }
+.guidance-form .section-title small { color: #6e614a; }
+.guidance-form textarea { width: 100%; min-height: 100px; background: #fff; border-color: #bda77e; font-size: 14px; }
+.guidance-form .primary { background: var(--amber); border-color: var(--amber); }
+.guidance-form .primary:hover:not(:disabled) { background: #684511; }
+.guidance-form .guidance-card { background: #fffdf6; }
+.reassign-box { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 14px 16px; border-top: 1px solid var(--line); font-size: 14px; }
+.reassign-box select { flex: 1; min-width: 145px; }
+.reassign-box button { border: 1px solid #bad8c7; background: var(--mint); color: var(--green-text); border-radius: 6px; font-size: 14px; }
+.control-tip { background: #eef4ed; border-left: 3px solid #95b6a0; border-radius: 0 7px 7px 0; padding: 13px 15px; margin-top: 17px; color: #415e49; font-size: 14px; line-height: 1.8; }
+.audit { list-style: none; padding: 0; margin: 0; }
+.audit li { border-left: 1px solid #c4d5c8; padding: 0 0 18px 15px; margin-left: 4px; position: relative; font-size: 14px; line-height: 1.7; }
+.audit li::before { content: ""; position: absolute; left: -4px; top: 6px; width: 7px; height: 7px; border-radius: 50%; background: #759d80; }
+.audit time { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.empty-small { padding: 32px 16px; color: var(--muted); font-size: 14px; line-height: 1.8; text-align: center; }
+.knowledge-shell { padding: 20px; background: #f6f8f5; }
+.knowledge-overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+.knowledge-overview > div { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; }
+.knowledge-overview > div > span { font-size: 14px; color: var(--muted); }
+.knowledge-overview strong { display: block; font-size: 28px; font-weight: 650; line-height: 1.4; margin-top: 5px; font-variant-numeric: tabular-nums; }
+.knowledge-overview strong small { font-size: 14px; font-weight: 400; color: var(--muted); }
+.knowledge-overview strong.text-metric { font-size: 22px; line-height: 1.8; }
+.knowledge-overview p { font-size: 12px; color: var(--muted); margin: 4px 0 0; line-height: 1.6; }
+.knowledge-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr) minmax(280px, 320px); gap: 16px; align-items: start; }
+.kb-list, .kb-editor, .kb-test { min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.kb-list { padding: 16px 12px; }
+.kb-list-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 13px; }
+.kb-list-head h2 { margin: 0; font-size: 18px; }
+.kb-list-head button { font-size: 14px; padding: 8px 11px; }
+.kb-search-input { width: 100%; margin-bottom: 11px; }
+.kb-filters { display: flex; gap: 5px; padding: 4px; background: #f2f5f1; border: 1px solid #e2e9e1; border-radius: 7px; margin-bottom: 14px; }
+.kb-filters button { flex: 1; border: 1px solid transparent; border-radius: 5px; color: var(--muted); font-size: 14px; padding: 8px 5px; }
+.kb-filters button.active { background: #fff; color: var(--green-text); border-color: #c5d8cb; font-weight: 600; }
+.kb-documents { display: flex; flex-direction: column; gap: 6px; max-height: 540px; overflow-y: auto; overscroll-behavior-y: contain; padding: 3px; }
+.kb-doc-item { display: flex; flex: 0 0 auto; gap: 9px; align-items: flex-start; width: 100%; min-width: 0; text-align: left; border: 1px solid transparent; border-radius: 7px; padding: 11px 8px; }
+.kb-doc-item > span:last-child { min-width: 0; flex: 1; }
+.kb-doc-item:hover { background: #f4f8f3; }
+.kb-doc-item.active { background: var(--mint); border-color: #bddbc9; }
+.kb-doc-icon { display: flex; color: var(--green-text); padding-top: 1px; }
+.kb-doc-title { display: block; font-size: 14px; font-weight: 550; line-height: 1.5; overflow-wrap: anywhere; }
+.kb-doc-meta { display: block; color: var(--muted); font-size: 12px; margin: 5px 0 6px; }
+.kb-list-footer { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 15px; }
+.kb-list-footer .field-help { margin-bottom: 0; }
+.kb-editor-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 18px; border-bottom: 1px solid var(--line); background: #fbfcfa; }
+.kb-editor-head h2 { font-size: 20px; margin: 0; }
+.kb-editor-head > .badge { flex-shrink: 0; max-width: 120px; }
+.kb-form { padding: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 17px; min-width: 0; }
+.form-group label { font-size: 14px; font-weight: 600; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; min-width: 0; }
+.form-group textarea { min-height: 135px; background: #fcfdfb; }
+.form-group textarea[lang="en"] { font-size: 16px; line-height: 1.6; background: #fff; }
+.form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.field-help { display: block; font-size: 12px; color: var(--muted); line-height: 1.75; margin: 0; }
+p.field-help { margin-top: 9px; }
+.form-feedback { padding: 11px 12px; border: 1px solid #dce5da; background: #f5f8f2; border-radius: 6px; font-size: 12px; color: #435e42; line-height: 1.7; margin: 3px 0 13px; }
+.kb-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.kb-actions button { font-size: 14px; }
+.kb-audit { border-top: 1px solid var(--line); background: #f9fbf7; padding: 12px 18px; font-size: 12px; color: var(--muted); }
+.kb-audit summary { min-height: 44px; padding: 10px 0; font-size: 14px; color: var(--ink); }
+.kb-audit p { margin: 8px 0; }
+.kb-test { padding: 18px; }
+.kb-test-head h2 { margin: 0 0 6px; font-size: 20px; }
+.kb-test-head p { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+.kb-test form > label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.kb-test textarea, .kb-question { width: 100%; font-size: 16px; line-height: 1.6; min-height: 130px; }
+.kb-suggestions { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0 12px; }
+.kb-suggestions button { font-size: 12px; padding: 8px; background: #f4f7f2; color: var(--muted); border: 1px solid #d2ddcf; border-radius: 6px; }
+.kb-suggestions button:hover { background: var(--mint); color: var(--green-text); }
+.kb-answer { margin-top: 18px; border: 1px solid #ccdfd0; background: #f7fcf7; border-radius: 7px; padding: 14px 12px; }
+.kb-answer.needs-review { background: #fffaf0; border-color: var(--amber-line); }
+.kb-answer-copy { margin-top: 13px; }
+.kb-answer-copy label { font-size: 12px; color: var(--muted); }
+.kb-answer-copy p { font-size: 16px; line-height: 1.65; margin: 5px 0 0; white-space: pre-wrap; }
+.kb-citations { border-top: 1px solid #d5e3d7; padding-top: 13px; margin-top: 15px; }
+.kb-citations > strong { display: block; font-size: 14px; margin-bottom: 8px; }
+.kb-citations > p { font-size: 12px; color: var(--muted); }
+.kb-citation { margin-top: 9px; }
+.kb-citation p { margin: 7px 0 0; font-size: 12px; color: var(--muted); line-height: 1.8; }
+.kb-empty { text-align: center; padding: 25px 10px; margin-top: 16px; background: #f7faf5; border: 1px dashed #c7d6c2; border-radius: 7px; color: var(--muted); font-size: 14px; }
+.kb-empty strong { color: var(--ink); font-weight: 550; }
+.kb-empty p { font-size: 12px; line-height: 1.8; margin: 8px 0 0; }
+.kb-statusbar { background: #eef4ec; padding: 12px; color: #405e41; border: 1px solid #d6e2d0; border-radius: 6px; font-size: 12px; line-height: 1.75; margin-top: 16px; }
+.kb-statusbar p { margin: 5px 0 0; }
+.kb-editor > .kb-statusbar { margin: 14px 18px 0; }
+footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 15px; padding: 15px 0 6px; color: var(--muted); font-size: 12px; }
+#toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); max-width: 90vw; padding: 13px 20px; border: 1px solid #bed6c3; border-radius: 8px; background: #fff; color: #285d44; font-size: 14px; box-shadow: 0 5px 24px #1a382b19; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 150ms; }
+#toast.visible { opacity: 1; }
+dialog { width: min(860px, 94vw); max-height: 90vh; overflow-y: auto; padding: 26px; border: 1px solid #c8d8cc; border-radius: 12px; color: var(--ink); box-shadow: 0 15px 60px #18392f30; }
+dialog::backdrop { background: #1e392e80; }
+.dialog-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.dialog-head h2 { font-size: 24px; margin: 6px 0 10px; }
+.playbook { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 16px 0 20px; }
+.playbook article { border: 1px solid var(--line); border-radius: 7px; padding: 17px; }
+.playbook article > b { color: var(--green-text); font-size: 12px; }
+.playbook h3 { margin: 9px 0; font-size: 16px; }
+.playbook p, .boundary p, .source-note { font-size: 14px; color: var(--muted); line-height: 1.8; margin: 0; }
+.boundary { background: #f0f6ed; padding: 16px; border: 1px solid #d8e4d1; border-radius: 7px; margin-bottom: 17px; }
+.boundary strong { display: block; font-size: 14px; margin-bottom: 8px; }
+.source-note { font-size: 12px; margin-bottom: 18px; }
+@keyframes arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pulse { 50% { opacity: .35; } }
+@media (max-width: 1249px) {
+  .walkthrough { flex-wrap: wrap; gap: 15px; }
+  .walkthrough > div:first-child { flex: 1; min-width: 0; }
+  .steps { gap: 15px; }
+  .step-action { flex-direction: row; align-items: center; justify-content: flex-end; width: 100%; }
+}
+@media (max-width: 1399px) {
+  .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .knowledge-layout { grid-template-columns: 250px minmax(0, 1fr); }
+  .kb-test { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 22px; }
+  .kb-test-head { grid-column: 1; }
+  .kb-test form { grid-column: 1; }
+  #kb-test-result { grid-column: 2; grid-row: 1 / 3; }
+  .kb-test .kb-statusbar { grid-column: 1 / -1; }
+  .kb-test #kb-test-result .kb-answer, .kb-test #kb-test-result .kb-empty { margin-top: 0; }
+}
+@media (max-width: 1249px) {
+  .manager-grid { grid-template-columns: minmax(0, 1fr); }
+  .manager-detail .compact-chat { height: 390px; max-height: 500px; }
+  .page-heading { align-items: flex-start; }
+  .page-heading #view-context { max-width: 200px; }
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .step { align-items: flex-start; }
+  .step small { max-width: 120px; }
+}
+@media (max-width: 1149px) {
+  main { padding: 23px 20px 10px; }
+  .topbar { padding: 10px 20px; }
+  .chat-layout { grid-template-columns: minmax(0, 1fr) 300px; }
+  .contact-list:not(:has(#sales-person)) { display: none; }
+  .contact-list:has(#sales-person) { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 12px 14px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .contact-list:has(#sales-person) > .section-title { margin: 0; font-size: 14px; }
+  .contact-list:has(#sales-person) > select { width: 200px; margin: 0; }
+  .contact-list:has(#sales-person) > .contact { flex: 1 1 180px; width: auto; max-width: 280px; min-height: 70px; margin: 0; padding: 8px 10px; }
+  .contact-list:has(#sales-person) > .source-block, .contact-list:has(#sales-person) > .list-note { display: none; }
+  .side-panel { padding: 14px; }
+  .messages { padding: 18px 20px 25px; }
+  .page-heading { flex-direction: column; gap: 10px; margin-bottom: 18px; }
+  .page-heading #view-context { max-width: 100%; }
+  .knowledge-shell { padding: 16px; }
+}
+@media (max-width: 899px) {
+  .knowledge-layout { grid-template-columns: minmax(0, 1fr); }
+  .kb-list { order: 1; }
+  .kb-test { grid-column: auto; display: block; order: 2; }
+  .kb-editor { order: 3; }
+  .kb-test #kb-test-result .kb-answer, .kb-test #kb-test-result .kb-empty { margin-top: 18px; }
+  .kb-documents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-height: 300px; }
+  .knowledge-overview { gap: 9px; }
+  .knowledge-overview > div { padding: 13px; }
+  .knowledge-overview strong.text-metric { font-size: 18px; line-height: 2.2; }
+}
+@media (max-width: 849px) {
+  .app-shell { display: block; }
+  .app-nav { height: auto; position: static; padding: 12px 16px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .brand { padding: 0; margin-bottom: 12px; }
+  .brand-symbol { width: 32px; height: 32px; font-size: 21px; }
+  .brand b { font-size: 16px; }
+  .brand div > span { font-size: 12px; }
+  .nav-heading, .nav-bottom { display: none; }
+  .view-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+  .view-tabs button { flex-direction: column; align-items: center; gap: 5px; min-height: 74px; padding: 8px 4px; font-size: 14px; text-align: center; }
+  .view-tabs button small { display: none; }
+  .topbar { min-height: 60px; }
+  main { padding-top: 20px; }
+  .chat-layout { grid-template-columns: minmax(0, 1fr) 290px; }
+  .walkthrough { padding: 14px; }
+  .step-action > span { max-width: none; }
+}
+@media (max-width: 699px) {
+  main { padding: 18px 12px 10px; }
+  .topbar { padding: 8px 12px; flex-wrap: wrap; gap: 4px 12px; }
+  .breadcrumb { font-size: 14px; gap: 7px; }
+  .header-actions { gap: 3px; }
+  .header-actions button { padding: 8px; }
+  h1 { font-size: 22px; }
+  .page-heading p { font-size: 14px; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 12px; }
+  .step small { max-width: none; }
+  .step-action { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .step-action button { width: 100%; }
+  .chat-layout { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .contact-list:has(#sales-person) { grid-column: auto; }
+  .contact-list:has(#sales-person) > .section-title { width: 100%; }
+  .contact-list:has(#sales-person) > select { flex: 1 1 100%; width: 100%; }
+  .contact-list:has(#sales-person) > .contact { flex: 1 1 150px; max-width: none; }
+  .side-panel { border-left: 0; border-top: 1px solid var(--line); padding: 15px; }
+  .chat-head { padding: 13px 14px; gap: 9px; }
+  .chat-head small { max-width: 225px; }
+  .chat-head .avatar { width: 32px; height: 32px; }
+  .chat-subline { padding: 9px 14px; }
+  .section-header { padding: 12px 14px; }
+  .messages { height: 470px; min-height: 350px; max-height: 600px; padding: 17px 17px 24px; }
+  .bubble { max-width: 93%; }
+  .pause-banner { padding: 10px 14px; flex-wrap: wrap; }
+  .chat-compose { padding: 12px; gap: 7px; flex-wrap: wrap; }
+  .compose-placeholder { min-width: 150px; font-size: 14px; }
+  .scenario-option { padding: 10px 12px; }
+  .scenario-option button { width: 100%; }
+  .draft-actions { flex-wrap: wrap; }
+  .draft-actions > span { flex: 1 1 100%; }
+  .manager { padding: 15px; }
+  .manager-header { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .manager-header h2 { font-size: 20px; }
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .team-card { padding: 12px; }
+  .table-head { align-items: flex-start; flex-wrap: wrap; }
+  .manager-table { overflow-x: visible; }
+  .manager-table table { display: block; min-width: 0; }
+  .manager-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .manager-table tbody { display: block; }
+  .manager-table tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px; border-bottom: 1px solid var(--line); gap: 5px 10px; }
+  .manager-table tr:last-child { border-bottom: 0; }
+  .manager-table tr.selected { background: #edf7f0; }
+  .manager-table td { padding: 5px 0; border: 0; min-width: 0; overflow-wrap: anywhere; }
+  .manager-table td:first-child, .manager-table td:last-child { grid-column: 1 / -1; }
+  .manager-table td:nth-child(2)::before, .manager-table td:nth-child(3)::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 12px; }
+  .manager-table td:nth-child(2)::before { content: '负责人'; }
+  .manager-table td:nth-child(3)::before { content: '跟进状态'; }
+  .manager-table td button { width: 100%; text-align: left; border-top: 1px solid var(--line); }
+  .detail-heading { flex-wrap: wrap; }
+  .detail-tabs { gap: 0 10px; }
+  .detail-tabs button { font-size: 14px; }
+  .guidance-form { padding: 14px; }
+  .guidance-form .section-title { flex-wrap: wrap; }
+  .reassign-box label { flex: 1 1 100%; }
+  .knowledge-shell { padding: 13px; }
+  .knowledge-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .knowledge-overview > div { padding: 13px 15px; }
+  .knowledge-overview > div:last-child { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; }
+  .knowledge-overview > div:last-child p { flex: 1 1 100%; margin-top: 0; }
+  .knowledge-overview strong { font-size: 25px; }
+  .knowledge-overview strong.text-metric { font-size: 20px; line-height: 1.6; }
+  .kb-documents { grid-template-columns: minmax(0, 1fr); }
+  .kb-editor-head { padding: 15px; flex-wrap: wrap; }
+  .kb-form, .kb-test { padding: 15px; }
+  .form-row { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .kb-actions button { flex: 1 1 100%; }
+  .kb-editor > .kb-statusbar { margin: 13px 15px 0; }
+  .kb-audit { padding: 12px 15px; }
+  .playbook { grid-template-columns: minmax(0, 1fr); }
+  dialog { padding: 20px; }
+  .dialog-head h2 { font-size: 21px; }
+  footer { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 379px) {
+  .app-nav { padding: 12px; }
+  .view-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .view-tabs button { flex-direction: row; justify-content: center; min-height: 54px; }
+  .chat-head { flex-wrap: wrap; }
+  .chat-head > div:not(.right) { flex: 1; }
+  .chat-head small { max-width: none; }
+  .chat-head .right { flex-basis: 100%; margin-left: 0; }
+  .toggle { width: 100%; }
+  .contact-list:has(#sales-person) > .contact { flex-basis: 100%; }
+  .team-card-top { align-items: flex-start; }
+  .team-card small { overflow-wrap: anywhere; }
+  .team-counts { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+  <div class="demo-disclosure"><span class="live-dot"></span> 交互演示 <span>· 所有客户与资料均为虚构；未连接 WhatsApp 或真实 AI</span></div>
+  <div class="app-shell">
+    <aside class="app-nav">
+      <div class="brand"><span class="brand-symbol">C<span>↗</span></span><div><b>CHENLU</b><span>VEHICLE GROUP</span></div></div>
+      <div class="nav-heading">工作空间</div>
+      <nav class="view-tabs" aria-label="功能分区">
+        <button data-view="inbox"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2A8.5 8.5 0 0 1 21 11.5Z"/><path d="M7 9h9M7 13h6"/></svg><span>AI 接待<small>询盘 · 回复 · 需求</small></span></button>
+        <button data-view="sales"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-3a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v3M18 8l2 2 3-4"/><circle cx="9" cy="6" r="4"/></svg><span>销售跟进<small>我的客户 · 待办</small></span></button>
+        <button data-view="manager"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M6 17v-5M12 17V7M18 17V3"/></svg><span>团队指导<small>全员会话 · 内部指导</small></span></button>
+        <button data-view="knowledge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v16M12 5C8 2 4 3 2 4v15c4-2 7-1 10 2 3-3 6-4 10-2V4c-2-1-6-2-10 1Z"/></svg><span>产品知识库<small>维护资料 · 测试回答</small></span></button>
+      </nav>
+      <div class="nav-bottom"><div class="nav-avatar">L</div><div><strong>Leon</strong><span>主管演示视角</span></div><span class="online-dot"></span></div>
+    </aside>
+    <div class="app-main">
+      <header class="topbar"><div class="breadcrumb">辰陆集团 <span>/</span> <strong id="page-title">AI 接待</strong></div><div class="header-actions"><button data-action="help" class="plain">演示说明</button><button data-action="reset" class="outline small">重新演示</button></div></header>
+      <main>
+        <section class="page-heading"><div><div class="eyebrow" id="page-eyebrow">CUSTOMER INBOX</div><h1 id="page-heading">把新询盘，接成有效需求。</h1><p id="page-description">AI 先接待、补齐信息；采购意向明确后，由业务员继续谈。</p></div><div id="view-context"></div></section>
+        <section class="walkthrough" aria-label="演示步骤"><div><span class="control-label">低平板询盘演示</span><div id="steps" class="steps"></div></div><div class="step-action"><span id="step-hint"></span><button id="next" class="primary" data-action="next">开始接待演示 <span>→</span></button></div></section>
+        <section class="workspace"><div id="workspace-body"></div></section>
+        <footer><span>一个接待入口 · 六位业务员 · 主管协同</span><span>号码与地区分工为演示设定</span></footer>
+      </main>
+    </div>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="help"><div class="dialog-head"><div><div class="eyebrow">DEMO GUIDE</div><h2>让一条询盘，走完团队的工作流程。</h2></div><button data-action="close-help" class="icon-btn" aria-label="关闭说明">×</button></div><div class="playbook"><article><b>01 · AI 接待</b><h3>接需求，不背介绍词</h3><p>逐步送入拖车买家的消息，看简短英文回复、中文需求卡和优先跟进理由。也可以模拟买家咨询装载方式，看知识库如何提供依据。</p></article><article><b>02 · 销售跟进</b><h3>接手后，就由人来聊</h3><p>业务员确认接手，AI 停止自动回复。客户修改尺寸后，需求卡更新，业务员准备回复、安排跟进。</p></article><article><b>03 · 团队指导</b><h3>看到交流，也能指导</h3><p>Leon 点开六位业务员的聊天，给当前负责人留内部建议。业务员确认收到后，主管能看到状态。指导不会发给客户。</p></article><article><b>04 · 产品知识库</b><h3>资料维护后，再用于回答</h3><p>查看车型资料、修改并发布演示版本，试问同一个问题观察答复变化。未发布和停用的资料不进入检索；价格和交期交人工核实。</p></article></div><div class="boundary"><strong>当前可以验证的是业务流程和使用体验</strong><p>全部为合成资料与本地规则，知识库试问采用关键词检索和已编写的双语答复。编辑只保存在当前页面，刷新或重新演示会清空；真实 WhatsApp、模型、多用户权限与持久化仍需独立验证。</p></div><button class="primary" data-action="close-help">开始体验 →</button></dialog>
+  <script>const BaseEngine = (() => {
+/**
+ * Chenlu inquiry demonstration: a small, deterministic rules engine.
+ * No model, WhatsApp integration, network calls, quotations or engineering approvals.
+ * All mutating functions operate on the state supplied by createCase().
+ */
+
+const PRODUCTS = Object.freeze({
+  lowbed: { en: 'low-bed semi-trailer', zh: '低平板半挂车' },
+  flatbed: { en: 'flatbed semi-trailer', zh: '平板半挂车' },
+  dump: { en: 'dump semi-trailer', zh: '自卸半挂车' },
+  cement: { en: 'bulk cement semi-trailer', zh: '散装水泥半挂车' },
+  tanker: { en: 'oil tank semi-trailer', zh: '油罐半挂车' },
+  howo: { en: 'HOWO truck', zh: 'HOWO 卡车' },
+});
+
+const FIELD_LABELS = Object.freeze({
+  product: '主要询购产品', quantity: '主要产品数量', howoInterest: '另购 HOWO 意向',
+  howoQuantity: '另购 HOWO 数量', loadDescription: '运输对象', machineWeightT: '主机重量（吨）',
+  attachmentsWeightT: '附件重量（吨）', weightIncludesAttachments: '主机重量是否含附件', attachmentsTogether: '附件是否与主机同车运输',
+  totalWeightStatedT: '买家自述运输总重（吨）', transportLengthM: '运输长度（米）',
+  transportWidthM: '运输宽度（米）', transportHeightM: '运输高度（米）',
+  incoterm: '贸易条款', destinationPort: '目的港', destinationCountry: '目的国',
+  usage: '使用工况', currentTractor: '现有牵引车', trailerCapacityRequestedT: '买家要求载重（吨）',
+  cargoType: '货物种类', volumeM3: '要求容积（立方米）', capacityL: '要求罐容（升）',
+  certificationRequest: '认证需求', deliveryRequest: '交期需求',
+});
+
+const FIELDS = Object.keys(FIELD_LABELS);
+const EMPTY_FIELD = () => ({ value: null, sources: [], status: 'missing' });
+const clone = value => structuredClone(value);
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const zh = text => /[\u3400-\u9fff]/u.test(text);
+const productPatterns = {
+  lowbed: /\blow[ -]?(?:bed|boy)\b|低平板|低板|低床/iu,
+  flatbed: /\bflat[ -]?bed\b|(?<!低)平板(?:车|半挂)?/iu,
+  dump: /\bdump(?:er)?\b|\btipper\b|自卸/iu,
+  cement: /\bbulk\s+cement\b|\bcement\s+(?:trailer|tanker)\b|散装水泥|粉罐/iu,
+  tanker: /\boil\s+(?:tank|tanker)\b|\bfuel\s+(?:tank|tanker)\b|\btank(?:er)?\s+(?:semi[ -]?)?trailer\b|油罐|液罐/iu,
+  howo: /\bhowo\b|豪沃/iu,
+};
+
+function createCase({ id = 'CL-DEMO-001', language = 'en' } = {}) {
+  return {
+    id, demo: true, engine: 'rules', language,
+    mode: 'automatic', owner: null, stage: 'collecting', version: 1,
+    fields: Object.fromEntries(FIELDS.map(key => [key, EMPTY_FIELD()])),
+    messages: [], audit: [], issues: [], unknownMessages: 0,
+    review: { version: null, status: 'not_reviewed' },
+    quote: { status: 'none', version: null, sent: false },
+    newMessagesForHuman: 0,
+    totals: { transportWeightT: null, provenance: null, sources: [], explanation: '运输总重待确认；不等于拖车额定载重。' },
+    disclosure: '辰陆业务规则演示；未接入 AI 或 WhatsApp，全部客户消息为测试输入。',
+  };
+}
+
+function source(message, excerpt = message.text) {
+  return { messageId: message.id, text: message.text, excerpt, kind: 'buyer_statement', verified: false };
+}
+
+function setField(state, key, value, message, changes, excerpt = message.text) {
+  const old = state.fields[key];
+  if (same(old.value, value)) return;
+  changes.push({ key, from: clone(old.value), to: clone(value), source: source(message, excerpt) });
+  state.fields[key] = { value, sources: [source(message, excerpt)], status: value === null ? 'cleared_by_buyer' : 'buyer_stated_unverified' };
+}
+
+function addMessage(state, role, text, metadata = {}) {
+  const message = { id: `M${state.messages.length + 1}`, role, text, ...metadata };
+  state.messages.push(message);
+  return message;
+}
+
+function n(value, unit = '') {
+  let result = Number(value);
+  if (/kg|千克|公斤/iu.test(unit)) result /= 1000;
+  if (/mm|毫米/iu.test(unit)) result /= 1000;
+  else if (/cm|厘米/iu.test(unit)) result /= 100;
+  return Number.isFinite(result) ? result : null;
+}
+
+function capture(pattern, text, group = 1) {
+  const match = text.match(pattern);
+  return match ? { value: match[group], match } : null;
+}
+
+function extract(state, message) {
+  const text = message.text;
+  const lower = text.toLowerCase().replace(/[×＊*]/gu, 'x');
+  const changes = [];
+  const set = (key, value, excerpt) => setField(state, key, value, message, changes, excerpt);
+  const oldProduct = state.fields.product.value;
+  const identified = Object.entries(productPatterns).filter(([, pattern]) => pattern.test(text)).map(([key]) => key);
+  const trailerProducts = identified.filter(key => key !== 'howo');
+  const existingHowo = /(?:we|i)\s+(?:(?:already|currently)\s+)?(?:have|own|use|are using)\b.{0,60}\bhowo\b|(?:our|my|existing|current)\b.{0,35}\bhowo\b|currently\s+(?:have|own|use|using)\b.{0,35}\bhowo\b|现有.{0,12}(?:howo|豪沃)|已有.{0,12}(?:howo|豪沃)|(?:howo|豪沃).{0,12}(?:现有|在用)/iu.test(text);
+  const howoPurchase = /(?:need|want|buy|purchase|interested|quote|looking for|also|do you (?:have|sell))\b.{0,35}\bhowo\b|\bhowo\b.{0,20}(?:available|availability|for sale)|(?:另购|采购|购买|想要|需要|也要|另需|报价|你们有|是否有).{0,15}(?:howo|豪沃)|(?:howo|豪沃).{0,15}(?:采购|报价|购买|也要|有卖|有吗)/iu.test(text);
+  const noHowo = /(?:no|not|don't|do not|cancel|without)\b.{0,20}\bhowo\b|(?:不需要|不要|取消).{0,8}(?:howo|豪沃)/iu.test(text);
+  const explicitProductChange = /(?:instead|switch|change|replace).{0,40}(?:trailer|low|flat|dump|cement|tank)|(?:改成|换成|不买|改买)/iu.test(text);
+
+  if (trailerProducts.length === 1 && (!oldProduct || explicitProductChange || oldProduct === 'howo')) {
+    const product = trailerProducts[0];
+    if (oldProduct && oldProduct !== product) {
+      // These values belong to the previous product, and must not survive a product switch.
+      for (const key of ['quantity', 'loadDescription', 'machineWeightT', 'attachmentsWeightT', 'weightIncludesAttachments', 'attachmentsTogether', 'totalWeightStatedT', 'transportLengthM', 'transportWidthM', 'transportHeightM', 'usage', 'trailerCapacityRequestedT', 'cargoType', 'volumeM3', 'capacityL']) {
+        if (state.fields[key].value !== null) set(key, null, '买家更换产品，旧产品参数清除');
+      }
+    }
+    set('product', product);
+  } else if (!oldProduct && identified.length === 1 && identified[0] === 'howo' && !existingHowo && !noHowo) {
+    set('product', 'howo');
+  }
+  if (noHowo) {
+    set('howoInterest', false);
+    if (state.fields.howoQuantity.value !== null) set('howoQuantity', null);
+  } else if (howoPurchase && state.fields.product.value !== 'howo') set('howoInterest', true);
+
+  const primary = state.fields.product.value;
+  const quantity = capture(/(?:^|\b)(\d+)\s*(?:units?\s+(?:of\s+)?)?(?:low[ -]?(?:bed|boy)|flat[ -]?bed|dump|tipper|bulk\s+cement|oil\s+tank|fuel\s+tank|tank(?:er)?\s+trailer)/iu, text)
+    || capture(/(?:需要|采购|购买|要|订购)?\s*(\d+)\s*(?:台|辆|个)\s*(?:低平板|平板|自卸|散装水泥|油罐)/u, text)
+    || capture(/(?:quantity|qty|数量)\s*[:：=]?\s*(\d+)/iu, text)
+    || capture(/(?:change|revise|update).{0,12}(?:quantity|qty|number).{0,12}(?:to|is|=)\s*(\d+)/iu, text)
+    || capture(/(?:数量|台数).{0,8}(?:改为|改成|是|为|要)\s*(\d+)/u, text)
+    || (trailerProducts.length === 1 ? capture(/(?:need|want|buy|purchase|order)\s+(\d+)\s+\d+(?:\.\d+)?\s*(?:[- ]?tons?|t)\b/iu, text) : null);
+  if (quantity && primary) set('quantity', Number(quantity.value) > 0 && Number(quantity.value) <= 10000 ? Number(quantity.value) : null);
+  const howoCount = capture(/(\d+)\s*(?:(?:units?|trucks?|tractors?)\s+(?:of\s+)?)?howo/iu, text)
+    || capture(/(\d+)\s*(?:台|辆)\s*(?:howo|豪沃)/iu, text);
+  if (howoCount && !existingHowo && !noHowo) set(primary === 'howo' ? 'quantity' : 'howoQuantity', Number(howoCount.value) > 0 ? Number(howoCount.value) : null);
+
+  if (/excavator|挖掘机|挖机/iu.test(text)) set('loadDescription', 'excavator');
+  else if (/bulldozer|推土机/iu.test(text)) set('loadDescription', 'bulldozer');
+  else if (/loader|装载机/iu.test(text)) set('loadDescription', 'loader');
+
+  const unit = '(kg|kilograms?|公斤|千克|t(?:ons?|onnes?)?|吨)';
+  const num = '(\\d+(?:\\.\\d+)?)';
+  let machine = text.match(new RegExp(`${num}\\s*[-]?\\s*${unit}\\s*(?:[- ]?(?:excavator|bulldozer|loader)|(?:的)?(?:挖掘机|挖机|推土机|装载机))`, 'iu'))
+    || text.match(new RegExp(`(?:excavator|machine|bulldozer|loader|主机|挖掘机|挖机|推土机|装载机)(?:\\s*(?:weight|重量))?(?:\\s*(?:weighs?|is|of|是|为))?\\s*[:：=]?\\s*${num}\\s*${unit}`, 'iu'));
+  const machineCorrection = text.match(new RegExp(`(?:machine|excavator|主机|挖机)(?:.{0,18})(?:from|从)\\s*${num}\\s*(?:${unit})?(?:.{0,8})(?:to|改为|改成|变为)\\s*${num}\\s*${unit}`, 'iu'));
+  if (machineCorrection) machine = [machineCorrection[0], machineCorrection[3], machineCorrection[4]];
+  if (machine) {
+    const value = n(machine[1], machine[2]);
+    set('machineWeightT', value > 0 && value <= 1000 ? value : null, machine[0]);
+  }
+  let attachments = text.match(new RegExp(`${num}\\s*${unit}\\s*(?:of\\s+)?(?:attachments?|accessories|buckets?|附件|附属件|铲斗)`, 'iu'))
+    || text.match(new RegExp(`(?:attachments?|accessories|buckets?|附件|附属件|铲斗)(?:\\s*(?:weight|重量))?(?:\\s*(?:weighs?|is|are|of|是|为))?\\s*[:：=]?\\s*${num}\\s*${unit}`, 'iu'));
+  const attachmentCorrection = text.match(new RegExp(`(?:attachments?|附件).{0,15}(?:from|从)\\s*${num}\\s*(?:${unit})?.{0,6}(?:to|改为|改成)\\s*${num}\\s*${unit}`, 'iu'));
+  if (attachmentCorrection) attachments = [attachmentCorrection[0], attachmentCorrection[3], attachmentCorrection[4]];
+  if (attachments) {
+    const value = n(attachments[1], attachments[2]);
+    set('attachmentsWeightT', value >= 0 && value <= 1000 ? value : null, attachments[0]);
+  }
+  const excludes = /(?:exclud(?:e|es|ing)|without|not includ(?:e|ed|ing)|does not include).{0,24}(?:attachments?|accessories|bucket)|(?:主机|重量|吨|t).{0,12}(?:不含|不包括|另加|另外|另有).{0,10}(?:附件|铲斗)|(?:plus|additional|extra|another)\s*\d+(?:\.\d+)?\s*(?:t(?:ons?|onnes?)?|kg)\s*(?:of\s+)?(?:attachments?|accessories|buckets?)|(?:另加|另外|加上)\s*\d+(?:\.\d+)?\s*吨\s*(?:附件|铲斗)/iu.test(text);
+  const includes = /(?<!not )(?<!not\s)(?:includ(?:e|es|ed|ing)).{0,24}(?:attachments?|accessories|bucket)|(?:重量|主机|吨|t).{0,12}(?<!不)(?:含|包括).{0,8}(?:附件|铲斗)/iu.test(text);
+  if (excludes) set('weightIncludesAttachments', false);
+  else if (includes && state.fields.machineWeightT.value !== null && !/(?:total|gross|总重|合计)/iu.test(text)) set('weightIncludesAttachments', true);
+  if (/(?:attachments?|accessories|buckets?).{0,35}(?:same trailer|same load|together|with the machine)|(?:same trailer|same load|together).{0,35}(?:attachments?|accessories|buckets?)|(?:附件|铲斗).{0,15}(?:同车|一起运输|与主机一起)|(?:同车|一起运输).{0,15}(?:附件|铲斗)/iu.test(text)) set('attachmentsTogether', true);
+  if (/(?:attachments?|accessories|buckets?).{0,30}(?:separate|another trailer|not together)|(?:附件|铲斗).{0,15}(?:分开|另一辆|不同车)/iu.test(text)) set('attachmentsTogether', false);
+  if (/^(?:yes[,!\s]+)?(?:together|same trailer|同车|一起运输)[.!。！\s]*$/iu.test(text) && state.fields.attachmentsWeightT.value !== null) set('attachmentsTogether', true);
+  const total = text.match(new RegExp(`(?:total(?:\\s+(?:transport|loaded|shipping))?(?:\\s+weight)?|gross(?:\\s+weight)?|运输总重|总重量|总重|合计)\\s*(?:is|of|为|是|约)?\\s*[:：=]?\\s*${num}\\s*${unit}`, 'iu'));
+  if (total) {
+    const value = n(total[1], total[2]);
+    set('totalWeightStatedT', value > 0 && value <= 2000 ? value : null, total[0]);
+  } else if ((machine || attachments) && changes.some(c => ['machineWeightT', 'attachmentsWeightT'].includes(c.key)) && state.fields.totalWeightStatedT.value !== null) {
+    set('totalWeightStatedT', null, '重量分项变化，旧运输总重待重新确认');
+  }
+  const trailerCapacity = text.match(new RegExp(`${num}\\s*${unit}\\s*(?:[- ]?(?:low[ -]?(?:bed|boy)|flat[ -]?bed|trailer))`, 'iu'))
+    || text.match(new RegExp(`(?:trailer\\s+(?:capacity|payload)|额定载重|要求载重|载重能力)\\s*[:：=]?\\s*${num}\\s*${unit}`, 'iu'));
+  if (trailerCapacity) set('trailerCapacityRequestedT', n(trailerCapacity[1], trailerCapacity[2]), trailerCapacity[0]);
+
+  const dims = lower.match(/(\d+(?:\.\d+)?)\s*x\s*(\d+(?:\.\d+)?)\s*x\s*(\d+(?:\.\d+)?)\s*(毫米|厘米|mm|cm|m|米)/iu);
+  if (dims) for (const [key, value] of [['transportLengthM', dims[1]], ['transportWidthM', dims[2]], ['transportHeightM', dims[3]]]) {
+    const converted = n(value, dims[4]);
+    set(key, converted > 0 && converted <= (key === 'transportLengthM' ? 100 : 20) ? converted : null, dims[0]);
+  }
+  for (const [key, label] of [['transportLengthM', '(?:length|long|长度|长)'], ['transportWidthM', '(?:width|wide|宽度|宽)'], ['transportHeightM', '(?:height|high|高度|高)']]) {
+    const correction = text.match(new RegExp(`${label}.{0,24}(?:from|从)\\s*${num}\\s*(?:毫米|厘米|mm|cm|m|米)?.{0,6}(?:to|改为|改成|变为)\\s*${num}\\s*(毫米|厘米|mm|cm|m|米)`, 'iu'));
+    const match = correction ? [correction[0], correction[2], correction[3]] : text.match(new RegExp(`${label}\\s*(?:is\\s+now|is|now|will be|改为|改成|变为|为|是)?\\s*[:：=]?\\s*${num}\\s*(毫米|厘米|mm|cm|m|米)`, 'iu'))
+      || text.match(new RegExp(`${num}\\s*(毫米|厘米|mm|cm|m|米)\\s*${label}`, 'iu'));
+    if (match) {
+      const value = n(match[1], match[2]);
+      set(key, value > 0 && value <= (key === 'transportLengthM' ? 100 : 20) ? value : null, match[0]);
+    }
+    if (new RegExp(`(?:don't know|do not know|unknown|not sure|cancel|remove|clear).{0,15}${label}|${label}.{0,10}(?:unknown|not sure)|(?:不清楚|不知道|未确定|清除|取消).{0,8}${label}|${label}.{0,8}(?:不清楚|不知道|未确定|取消)`, 'iu').test(text)) set(key, null);
+  }
+  if (/(?:don't know|unknown|not sure|clear|remove).{0,12}(?:machine weight|excavator weight)|(?:主机重量|挖机重量).{0,6}(?:不清楚|未知|不确定|清除)/iu.test(text)) {
+    set('machineWeightT', null); set('weightIncludesAttachments', null); set('totalWeightStatedT', null);
+  }
+  if (/(?:unknown|not sure|don't know|remove|cancel).{0,14}(?:attachment|accessory)|(?:附件重量).{0,8}(?:不清楚|未知|不确定|清除)/iu.test(text)) {
+    set('attachmentsWeightT', null); set('totalWeightStatedT', null);
+  }
+
+  const term = text.match(/\b(CIF|FOB|EXW|CFR|DAP|DDP)\b/iu);
+  if (term) set('incoterm', term[1].toUpperCase(), term[0]);
+  const ports = [['Dar es Salaam', /dar\s*es\s*salaam|达累斯萨拉姆/iu], ['Mombasa', /mombasa|蒙巴萨/iu], ['Lagos', /lagos|拉各斯/iu], ['Tema', /\btema\b|特马港/iu], ['Valparaíso', /valpara[ií]so|瓦尔帕莱索/iu]];
+  const matchedPorts = ports.map(([port, pattern]) => ({ port, match: text.match(pattern) })).filter(entry => entry.match).sort((a, b) => a.match.index - b.match.index);
+  if (matchedPorts.length) { const latest = matchedPorts.at(-1); set('destinationPort', latest.port, latest.match[0]); }
+  const countries = [['Tanzania', /\btanzania\b|坦桑尼亚/iu], ['Kenya', /\bkenya\b|肯尼亚/iu], ['Nigeria', /\bnigeria\b|尼日利亚/iu], ['Ghana', /\bghana\b|加纳/iu], ['Chile', /\bchile\b|智利/iu], ['Burkina Faso', /\bburkina\s+faso\b|布基纳法索/iu], ['Saudi Arabia', /\bsaudi\s+arabia\b|沙特阿拉伯/iu]];
+  for (const [country, pattern] of countries) {
+    const matched = text.match(pattern);
+    if (matched && !new RegExp(`(?:not|不是|不去)\\s*${matched[0]}`, 'iu').test(text)) set('destinationCountry', country, matched[0]);
+  }
+  if (/(?:destination country|目的国).{0,12}(?:unknown|not sure|待定|不确定|不知道)|(?:don't know|not sure).{0,12}destination country/iu.test(text)) set('destinationCountry', null);
+  const highway = /highway|public roads?|paved(?: roads?)?|road transport|公路|高速|道路运输/iu.test(text);
+  const mine = /\bmin(?:e|es|ing)\b|矿区|矿山/iu.test(text);
+  if (highway || mine) set('usage', highway && mine ? 'highway_and_mine' : highway ? 'highway' : 'mine');
+  const tractor = text.match(/howo\s*(6\s*[×x*]\s*4|8\s*[×x*]\s*4|4\s*[×x*]\s*2)/iu);
+  if (tractor && existingHowo) set('currentTractor', `HOWO ${tractor[1].replace(/\s/gu, '').replace(/[x*]/gu, '×')}`, tractor[0]);
+
+  const cargoPatterns = [['sand', /\bsand\b|沙子|砂石/iu], ['gravel', /\bgravel\b|碎石/iu], ['coal', /\bcoal\b|煤炭|运煤/iu], ['cement', /\bcement\b|水泥/iu], ['diesel', /\bdiesel\b|柴油/iu], ['gasoline', /\bgasoline\b|\bpetrol\b|汽油/iu], ['container_40ft', /40\s*(?:ft|feet|foot|尺).{0,12}(?:container|集装箱)|(?:container|集装箱).{0,12}40\s*(?:ft|feet|foot|尺)/iu], ['container_20ft', /20\s*(?:ft|feet|foot|尺).{0,12}(?:container|集装箱)|(?:container|集装箱).{0,12}20\s*(?:ft|feet|foot|尺)/iu]];
+  for (const [cargo, pattern] of cargoPatterns) {
+    const matched = text.match(pattern);
+    if (matched && primary !== 'howo') set('cargoType', cargo, matched[0]);
+  }
+  const volume = text.match(/(\d+(?:\.\d+)?)\s*(?:m\s*[³3]|cubic\s*met(?:er|re)s?|立方(?:米)?)/iu);
+  if (volume) set('volumeM3', Number(volume[1]), volume[0]);
+  const liters = text.match(/(\d+(?:[,.]\d+)?)\s*(?:lit(?:er|re)s?|升|L\b)/iu);
+  if (liters && primary === 'tanker') set('capacityL', Number(liters[1].replace(',', '')), liters[0]);
+  if (/\bCE\b|\bISO\s*\d*\b|certificat(?:e|ion)|认证|证书/iu.test(text)) set('certificationRequest', text);
+  if (/delivery|lead time|ship(?:ment)?\s+(?:by|before|next)|交期|交货|下周发货|月底发货/iu.test(text)) set('deliveryRequest', text);
+
+  // One requirement revision per message. Filling initially missing facts keeps v1,
+  // while editing an existing fact or altering a reviewed/drafted request increments.
+  const revised = changes.some(c => c.from !== null && !same(c.from, c.to)) || (changes.length > 0 && (state.quote.status !== 'none' || state.review.version !== null));
+  if (revised) {
+    state.version += 1;
+    if (state.quote.status !== 'none') state.quote = { ...state.quote, status: 'invalidated', invalidatedBy: message.id, sent: false };
+    state.review = { version: null, status: 'needs_review' };
+  }
+  if (changes.length) state.audit.push({ messageId: message.id, version: state.version, changes: clone(changes) });
+  recomputeTotals(state);
+  refreshStage(state);
+  return changes;
+}
+
+function recomputeTotals(state) {
+  const f = state.fields;
+  const machine = f.machineWeightT.value;
+  const attachments = f.attachmentsWeightT.value;
+  const includes = f.weightIncludesAttachments.value;
+  const stated = f.totalWeightStatedT.value;
+  let derived = null;
+  let sources = [];
+  let explanation = '运输总重待确认；不等于拖车额定载重。';
+  if (machine !== null && includes === true) {
+    derived = machine;
+    sources = [...f.machineWeightT.sources, ...f.weightIncludesAttachments.sources];
+    explanation = '买家说明主机重量已含附件；不得再次叠加附件。';
+  } else if (machine !== null && attachments !== null && includes === false) {
+    derived = Math.round((machine + attachments) * 1000) / 1000;
+    sources = [...f.machineWeightT.sources, ...f.attachmentsWeightT.sources, ...f.weightIncludesAttachments.sources];
+    explanation = `根据买家自述分项计算：${machine} + ${attachments} = ${derived} 吨；${f.attachmentsTogether.value === true ? '买家称同车运输' : f.attachmentsTogether.value === false ? '买家称分车运输，单车载荷待确认' : '是否同车运输待确认'}；未核验，不等于额定载重。`;
+  }
+  state.issues = state.issues.filter(issue => issue.key !== 'weight_conflict');
+  if (stated !== null && derived !== null && Math.abs(stated - derived) > 0.05) {
+    state.issues.push({ key: 'weight_conflict', label: `重量冲突：买家总重 ${stated} 吨，分项计算 ${derived} 吨`, sources: [...f.totalWeightStatedT.sources, ...sources] });
+    state.totals = { transportWeightT: null, provenance: 'conflicting_buyer_statements', sources: [...f.totalWeightStatedT.sources, ...sources], explanation: '总重与分项不一致，等待买家/业务员核实。' };
+  } else if (stated !== null) {
+    state.totals = { transportWeightT: stated, provenance: 'buyer_stated', sources: f.totalWeightStatedT.sources, explanation: '买家自述运输总重，待技术核验；不等于拖车额定载重。' };
+  } else {
+    state.totals = { transportWeightT: derived, provenance: derived === null ? null : 'calculated_from_buyer_statements', sources, explanation };
+  }
+}
+
+function missingQuestions(state, language) {
+  const f = state.fields;
+  const isZh = language === 'zh';
+  const product = f.product.value;
+  if (!product) return [isZh ? '您需要哪类产品：平板、低平板、自卸、散装水泥、油罐半挂车，还是 HOWO 卡车？' : 'Which product do you need: flatbed, low-bed, dump, bulk cement, oil tank semi-trailer, or a HOWO truck?'];
+  const questions = [];
+  if (f.quantity.value === null) questions.push(isZh ? '您计划采购几台？' : 'How many units do you need?');
+  if (product === 'lowbed') {
+    if (f.machineWeightT.value === null) questions.push(isZh ? '要运输什么设备？主机重量是多少？' : 'What machine will be carried, and what is its weight?');
+    if (state.totals.transportWeightT === null) questions.push(isZh ? '主机重量含附件吗？若不含，附件多重？' : 'Does the machine weight include attachments? If excluded, how much do they weigh?');
+    if (['transportLengthM', 'transportWidthM', 'transportHeightM'].some(key => f[key].value === null)) questions.push(isZh ? '请发设备运输状态的长 × 宽 × 高（米）。' : 'What are the transport dimensions (L × W × H), in metres?');
+    if (f.attachmentsWeightT.value !== null && f.attachmentsWeightT.value > 0 && f.attachmentsTogether.value === null) questions.push(isZh ? '附件与主机会放在同一台拖车上吗？' : 'Will the attachments travel on the same trailer?');
+    if (f.usage.value === null) questions.push(isZh ? '走公路、矿区道路，还是两者都有？' : 'Public roads, mine roads, or both?');
+    if (f.currentTractor.value === null) questions.push(isZh ? '现有牵引车是什么型号？请提供牵引车和鞍座/牵引销资料供技术核验。' : 'What tractor do you use? Please provide its model and fifth-wheel/kingpin details for technical review.');
+  } else if (product === 'flatbed') {
+    if (f.cargoType.value === null) questions.push(isZh ? '主要运集装箱还是其他货物？请说明类型、重量与尺寸。' : 'Will you carry containers or other cargo? Please share the cargo type, weight and dimensions.');
+  } else if (product === 'dump') {
+    if (f.cargoType.value === null || f.volumeM3.value === null) questions.push(isZh ? '主要运输砂石、煤炭还是其他物料？需要多大容积？' : 'Will it carry sand, gravel, coal or another material? What volume do you need?');
+  } else if (product === 'cement') {
+    if (f.volumeM3.value === null) questions.push(isZh ? '要运输哪种粉料，目标容积和卸料条件是什么？' : 'Which powder will you transport, and what volume and discharge conditions do you need?');
+  } else if (product === 'tanker') {
+    if (f.cargoType.value === null || (f.capacityL.value === null && f.volumeM3.value === null)) questions.push(isZh ? '运输什么液体？需要多少升、几个舱，目的国有哪些要求？' : 'Which liquid will you carry? What tank volume and number of compartments do you need, and what are the destination requirements?');
+  } else if (product === 'howo') questions.push(isZh ? '需要牵引车、自卸车还是其他 HOWO 车型？请说明驱动形式、用途和排放要求。' : 'Do you need a HOWO tractor, dump truck or another model? Please share the drive type, application and emission requirements.');
+  if (f.destinationPort.value === null) questions.push(isZh ? '目的港是哪里？' : 'What is the destination port?');
+  if (f.destinationCountry.value === null) questions.push(isZh ? '目的国是哪里？' : 'Which country is the delivery for?');
+  return questions;
+}
+
+function refreshStage(state) {
+  if (state.mode === 'human') state.stage = 'human_followup';
+  else if (state.quote.status === 'invalidated' || state.review.status === 'needs_review') state.stage = 'needs_review';
+  else if (state.review.version === state.version && state.review.status === 'recorded') state.stage = 'quote_preparation';
+  else if (state.fields.product.value && missingQuestions(state, 'en').length === 0) state.stage = 'technical_review';
+  else state.stage = 'collecting';
+}
+
+const wantsHuman = text => /(?:speak|talk|connect|transfer).{0,22}(?:human|person|sales|agent|someone)|(?:human|salesperson|sales rep|sales representative|live agent)\s*(?:please|now)?[.!?]?\s*$|(?:转|找|联系|交给|我要|需要).{0,5}(?:人工|业务员|销售)|^人工[。！!]?$/iu.test(text);
+const pricing = text => /price|how much|quotation|\bquote\b|cost|运费|价格|多少钱|报价|费用/iu.test(text);
+const delivery = text => /delivery|lead time|ship(?:ment)?\s+(?:by|before|next)|交期|交货|下周发货|月底发货/iu.test(text);
+const certification = text => /\bCE\b|\bISO\s*\d*\b|certificat(?:e|ion)|认证|证书/iu.test(text);
+
+function productFaq(state, text, language) {
+  const isZh = language === 'zh';
+  const product = state.fields.product.value;
+  if (/what (?:products?|trailers?|vehicles?).{0,20}(?:sell|offer|have)|product range|哪些产品|卖什么|产品种类|产品范围/iu.test(text)) return isZh
+    ? '辰陆的产品范围包括平板、低平板、自卸、散装水泥、油罐半挂车和 HOWO 卡车。您主要考虑哪一类，运输什么货物？'
+    : 'Chenlu’s product range includes flatbed, low-bed, dump, bulk cement and oil tank semi-trailers, plus HOWO trucks. Which type are you considering, and what will it carry?';
+  if (product && /do you (?:sell|have)|(?:available|availability)|你们有|有卖|有吗|销售吗/iu.test(text) && productPatterns[product].test(text)) return isZh
+    ? `辰陆有${PRODUCTS[product].zh}这一产品类别。具体车型和可交付配置需要结合您的用途，由业务员确认。`
+    : `Chenlu offers ${PRODUCTS[product].en}s. Sales will confirm the model and available configuration for your application.`;
+  if (product === 'lowbed' && /ramp|detachable|gooseneck|front.load|rear.load|loading|unloading|爬梯|鹅颈|装卸|装车|前装|后装/iu.test(text)) return isZh
+    ? '爬梯装载通常从后部驶上车板；可拆卸鹅颈通常拆开前端，从前部装载。具体方案要结合设备离地间隙、运输尺寸和装卸场地，由工程师确认。您的设备是自行驶上拖车，还是吊装？'
+    : 'Ramp loading usually brings the machine onto the deck from the rear. A detachable gooseneck usually opens the front for loading. Engineers need to check ground clearance, transport dimensions and site conditions before selecting the arrangement. Will the machine drive onto the trailer or be lifted on?';
+  if (product === 'lowbed' && /(?:how many|number of|recommend|choose).{0,20}(?:axles?|capacity)|(?:axles?).{0,15}(?:recommend|enough)|几轴|多少轴|轴数|推荐配置|选型/iu.test(text)) return isZh
+    ? '仅凭设备吨位还不能确认轴数或载重配置。需要结合运输尺寸、载荷分布、路线和牵引车接口，由工程师核验后选型。'
+    : 'Weight alone is not enough to confirm axle count or payload configuration. Our engineers need to review transport dimensions, load distribution, route conditions and tractor connections before selecting the configuration.';
+  if (product === 'lowbed' && /(?:what is|what are|what.*used for|tell me about|can.*carry|suitable).{0,35}(?:low.?bed|excavator|machine)|(?:low.?bed).{0,30}(?:used for|suitable|difference)|低平板.{0,20}(?:用途|是什么|能运|适合)|(?:挖机|设备).{0,12}(?:能运|适合)/iu.test(text)) return isZh
+    ? '低平板可用于工程机械等货物的运输。是否适合您这台设备，需要核验重量、运输尺寸、载荷分布、装卸方式和路线要求。'
+    : 'Low-bed trailers are used for transporting construction machinery and other loads. Suitability for your machine depends on verified weight, transport dimensions, load distribution, loading method and route requirements.';
+  return null;
+}
+
+function respond(state, input) {
+  const text = String(input ?? '').trim();
+  if (!text) return { reply: null, outgoing: false, changed: false, changes: [], state };
+  const language = zh(text) ? 'zh' : 'en';
+  state.language = language;
+  const message = addMessage(state, 'buyer', text, { language, simulated: true });
+  const changes = extract(state, message);
+  if (state.mode === 'human') {
+    state.newMessagesForHuman += 1;
+    refreshStage(state);
+    return { reply: null, outgoing: false, changed: changes.length > 0, changes, state };
+  }
+  if (wantsHuman(text)) {
+    handoff(state);
+    const reply = language === 'zh' ? '好的，已转业务员 A，接下来由业务员继续跟进。' : 'I’ll pass this enquiry to Sales A, who will continue with you here.';
+    addMessage(state, 'assistant', reply, { rule: 'handoff', simulated: true });
+    return { reply, outgoing: true, changed: changes.length > 0, changes, state };
+  }
+  const parts = [];
+  const isZh = language === 'zh';
+  const substantive = changes.length > 0;
+  const field = key => state.fields[key].value;
+  const faq = productFaq(state, text, language);
+  const changed = key => changes.some(change => change.key === key);
+  const revised = changes.some(c => c.from !== null && !same(c.from, c.to));
+  const newProduct = changes.some(c => c.key === 'product' && c.from === null);
+  const previousReplies = state.messages.filter(m => m.role === 'assistant').map(m => m.text);
+  const alreadySaid = sentence => previousReplies.some(reply => reply.includes(sentence));
+  if (state.issues.some(issue => issue.key === 'weight_conflict')) parts.push(isZh ? '您提供的总重与重量分项不一致，我先保留原文，运输总重暂不确认。请核实主机和附件是否重复计重。' : 'The stated total and the weight breakdown do not match. I’ve kept the source messages and left total transport weight unconfirmed. Please clarify whether attachments have been counted twice.');
+  else if (revised && state.quote.status === 'invalidated') parts.push(isZh ? '之前的报价草稿需按新参数重新复核。' : 'The previous quotation draft is invalid and needs review again.');
+  else if (revised && !(changes.some(c => /transport(?:Length|Width|Height)M/.test(c.key)) && ['transportLengthM', 'transportWidthM', 'transportHeightM'].every(key => field(key) !== null))) parts.push(isZh ? '已更新，工程师会核验新参数。' : 'Updated. Our engineers will check the revised details.');
+  else if (substantive && field('product') && (newProduct || changed('quantity'))) {
+    const name = PRODUCTS[field('product')][isZh ? 'zh' : 'en'];
+    parts.push(isZh ? `谢谢，已记下${field('quantity') ? `${field('quantity')} 台` : ''}${name}需求。` : `Thank you. I’ve noted ${field('quantity') ? `${field('quantity')} ` : ''}${name}${field('quantity') > 1 ? 's' : ''}.`);
+  }
+  if (!revised && (changed('usage') || changed('currentTractor'))) {
+    const usageLabel = { highway: ['公路运输', 'public-road use'], mine: ['矿区运输', 'mine use'], highway_and_mine: ['公路和矿区运输', 'public-road and mine use'] }[field('usage')];
+    const details = [changed('usage') && usageLabel ? usageLabel[isZh ? 0 : 1] : null, changed('currentTractor') ? (isZh ? `现有牵引车 ${field('currentTractor')}` : `your existing ${field('currentTractor')} tractor`) : null].filter(Boolean);
+    parts.push(isZh ? `已记下本次补充：${details.join('，')}。` : `Noted: ${details.join(', with ')}.`);
+  }
+  if (!revised && (changed('incoterm') || changed('destinationPort') || changed('destinationCountry'))) {
+    const details = [changed('incoterm') ? field('incoterm') : null, changed('destinationPort') ? field('destinationPort') : null, changed('destinationCountry') ? field('destinationCountry') : null].filter(Boolean);
+    parts.push(isZh ? `已记下您的交付要求：${details.join('，')}。` : `${details.join(changed('incoterm') && changed('destinationPort') ? ' to ' : ', ')}, noted.`);
+  }
+  if (!revised && changed('attachmentsTogether')) parts.push(field('attachmentsTogether') === true
+    ? (isZh ? '已记下附件与主机同车运输。' : 'I’ve noted that the attachments will travel on the same trailer as the machine.')
+    : (isZh ? '已记下附件分车运输，请业务员进一步确认每台拖车的装载分配。' : 'I’ve noted separate transport for the attachments. Sales will need to confirm the load allocation for each trailer.'));
+  if (substantive && field('howoInterest') === true && changes.some(c => c.key === 'howoInterest')) parts.push(isZh ? '也记下了您另购 HOWO 的意向。' : 'I’ve also noted your interest in purchasing a HOWO tractor.');
+  if (substantive && state.totals.transportWeightT !== null && changes.some(c => ['machineWeightT', 'attachmentsWeightT', 'weightIncludesAttachments', 'totalWeightStatedT'].includes(c.key))) parts.push(isZh ? `主机和附件合计 ${state.totals.transportWeightT} 吨，待工程师核验。` : `Noted: ${state.totals.transportWeightT} t total for the machine and attachments, pending engineering review.`);
+  if (substantive && ['transportLengthM', 'transportWidthM', 'transportHeightM'].every(key => field(key) !== null) && changes.some(c => /transport(?:Length|Width|Height)M/.test(c.key))) {
+    parts.push(isZh ? `${revised ? '尺寸已更新' : '运输尺寸'}：${field('transportLengthM')} × ${field('transportWidthM')} × ${field('transportHeightM')} 米。` : `${revised ? 'Updated transport dimensions' : 'Transport dimensions'}: ${field('transportLengthM')} × ${field('transportWidthM')} × ${field('transportHeightM')} m.`);
+    if (changes.some(c => c.key === 'transportWidthM' && c.from !== null) && !changes.some(c => ['transportLengthM', 'transportHeightM'].includes(c.key))) parts.push(isZh ? `请确认长度仍为 ${field('transportLengthM')} 米、高度仍为 ${field('transportHeightM')} 米？` : `Please confirm whether length remains ${field('transportLengthM')} m and height remains ${field('transportHeightM')} m.`);
+  }
+  if (pricing(text)) parts.push(isZh ? '这套配置的价格尚未核准。业务员会确认配置、运费和保险后报价。' : 'I don’t have an approved price for this configuration yet. Our sales team will confirm specification, freight and insurance before quoting.');
+  if (pricing(text) && !newProduct) parts.push(isZh ? '要帮您转接业务员吗？' : 'Shall I connect you with our sales team?');
+  if (delivery(text)) parts.push(isZh ? '交期需求已记录，生产与船期需要人工确认，目前不能承诺发货日期。' : 'I’ve recorded the delivery request. Production availability and sailing schedules require human confirmation; I cannot promise a shipping date.');
+  if (certification(text)) parts.push(isZh ? '认证需求已记录，证书及其适用车型、目的国需要核验，目前不能确认具备某项认证。' : 'I’ve recorded the certification request. Certificates, their applicable model and destination requirements need verification; I cannot confirm certification here.');
+  if (faq) parts.push(faq);
+  if (!substantive && !pricing(text) && !delivery(text) && !certification(text) && !faq) {
+    if (/^(?:hi|hello|hey|good (?:morning|afternoon|evening)|你好|您好)[!,.，。\s]*$/iu.test(text)) parts.push(isZh ? '您好，欢迎咨询辰陆。请告诉我需要哪类车辆。' : 'Hello, welcome to Chenlu. What vehicle do you need?');
+    else if (/^(?:thanks?|thank you|谢谢|好的|ok|okay)[!,.，。\s]*$/iu.test(text)) parts.push(isZh ? '收到。您可以继续补充需求，或要求转业务员。' : 'Understood. You can add requirements or ask to speak with a salesperson.');
+    else {
+      state.unknownMessages += 1;
+      parts.push(isZh ? '这条信息已保留，但当前规则演示无法可靠理解这个问题。我不会猜测答案；您可以说明车辆需求，或输入“转人工”交给业务员。' : 'I’ve kept your message, but this rules demo cannot reliably interpret that question. I will not guess. Please describe the vehicle requirement, or ask to speak with a salesperson.');
+    }
+  }
+  if ((substantive || pricing(text)) && !revised && (!pricing(text) || newProduct)) {
+    const questions = missingQuestions(state, language);
+    const otherLanguage = missingQuestions(state, isZh ? 'en' : 'zh');
+    const freshQuestions = questions.filter((question, index) => !alreadySaid(question) && !alreadySaid(otherLanguage[index]));
+    if (freshQuestions.length) parts.push(freshQuestions.slice(0, 2).join('\n'));
+    else if (questions.length === 0 && field('product') === 'lowbed') {
+      const documents = isZh ? '下一步请发设备运输图或照片、牵引车鞍座/牵引销资料及路线要求，工程师核验后确认配置。' : 'Please send transport drawings/photos, tractor fifth-wheel/kingpin details and route requirements. Our engineers will review these before confirming the configuration.';
+      if (!alreadySaid(documents)) parts.push(documents);
+    }
+  }
+  if (!parts.length) parts.push(isZh ? '收到，已记下本次补充。' : 'Noted. I’ve recorded the additional details.');
+  const reply = parts.join('\n\n');
+  addMessage(state, 'assistant', reply, { rule: 'intake', simulated: true });
+  refreshStage(state);
+  return { reply, outgoing: true, changed: changes.length > 0, changes, state };
+}
+
+function handoff(state, owner = '业务员 A') {
+  state.mode = 'human';
+  state.owner = owner;
+  state.newMessagesForHuman = 0;
+  addMessage(state, 'system', `负责人：${owner}；自动回复暂停。`, { event: 'handoff', simulated: true });
+  refreshStage(state);
+  return state;
+}
+
+function assignOwner(state, owner) {
+  if (!owner || typeof owner !== 'string') throw new TypeError('A nonempty owner is required');
+  const previous = state.owner;
+  state.owner = owner;
+  addMessage(state, 'system', `负责人从 ${previous || '未分配'} 交接到 ${owner}；保留需求 v${state.version} 和完整消息。`, { event: 'owner_changed', simulated: true });
+  return state;
+}
+
+function resume(state) {
+  state.mode = 'automatic';
+  state.newMessagesForHuman = 0;
+  addMessage(state, 'system', '演示操作者恢复自动规则回复。', { event: 'resumed', simulated: true });
+  refreshStage(state);
+  return state;
+}
+
+function resetCase(state, options = {}) {
+  const fresh = createCase({ id: state?.id || 'CL-DEMO-001', ...options });
+  if (!state) return fresh;
+  for (const key of Object.keys(state)) delete state[key];
+  Object.assign(state, fresh);
+  return state;
+}
+
+function review(state, { actor = '技术人员 T', documentsConfirmed = false } = {}) {
+  const missing = technicalMissing(state);
+  if (!documentsConfirmed || missing.length) return { ok: false, missing: [...missing, ...(!documentsConfirmed ? ['未确认已收到并核验运输图、牵引车接口和路线资料'] : [])], state };
+  state.review = { version: state.version, status: 'recorded', actor, simulated: true };
+  addMessage(state, 'system', `${actor}在演示中记录已核验需求 v${state.version}；不构成真实技术审核。`, { event: 'review_recorded', simulated: true });
+  refreshStage(state);
+  return { ok: true, missing: [], state };
+}
+
+function technicalMissing(state) {
+  const required = state.fields.product.value === 'lowbed'
+    ? ['product', 'quantity', 'transportLengthM', 'transportWidthM', 'transportHeightM', 'destinationCountry', 'destinationPort', 'currentTractor', 'usage']
+    : ['product', 'quantity', 'destinationCountry', 'destinationPort'];
+  const missing = required.filter(key => state.fields[key].value === null).map(key => FIELD_LABELS[key]);
+  if (state.fields.product.value === 'lowbed' && state.totals.transportWeightT === null) missing.push('运输总重及附件计重依据');
+  if (state.fields.product.value === 'lowbed' && state.fields.attachmentsWeightT.value > 0 && state.fields.attachmentsTogether.value !== true) missing.push('主机与附件的单车装载分配');
+  if (state.issues.length) missing.push(...state.issues.map(issue => issue.label));
+  return missing;
+}
+
+function makeQuoteDraft(state) {
+  const missing = technicalMissing(state);
+  if (state.review.version !== state.version || state.review.status !== 'recorded') missing.push('当前需求版本尚未记录人工技术复核');
+  if (missing.length) return { ok: false, missing, state };
+  state.quote = { status: 'draft', version: state.version, sent: false, amount: null, currency: null, freight: null, finalConfiguration: null };
+  addMessage(state, 'system', `已建需求 v${state.version} 的报价准备草稿；金额、运费与最终配置为空，未发送。`, { event: 'quote_draft', simulated: true });
+  refreshStage(state);
+  return { ok: true, missing: [], state };
+}
+
+function manager(state) {
+  const labels = { collecting: '补齐需求', technical_review: '待技术核验', human_followup: '人工跟进', quote_preparation: '报价准备', needs_review: '参数变化待复核' };
+  const nextTasks = [];
+  if (!state.owner) nextTasks.push({ owner: '经理', task: '分配负责人，保持一客一负责人' });
+  if (state.newMessagesForHuman) nextTasks.push({ owner: state.owner || '业务员 A', task: `${state.newMessagesForHuman} 条接管后新消息待人工处理；自动回复暂停` });
+  if (state.quote.status === 'invalidated') nextTasks.push({ owner: state.owner || '业务员 A', task: `旧报价草稿 v${state.quote.version} 已失效；按 v${state.version} 重新复核` });
+  else if (state.review.status === 'needs_review') nextTasks.push({ owner: '技术人员 T', task: `需求已变为 v${state.version}，重新核验变更参数；当前无报价草稿` });
+  const missing = technicalMissing(state);
+  if (missing.length) nextTasks.push({ owner: state.owner || '业务员 A', task: `补齐：${missing.join('、')}` });
+  nextTasks.push({ owner: '技术人员 T', task: '核验运输图/照片、牵引车接口、路线与目的国要求；不得仅凭重量推荐轴数' });
+  if (state.review.version === state.version) nextTasks.push({ owner: state.owner || '业务员 A', task: '人工确认配置、价格、运费和交期；演示草稿未发送' });
+  return {
+    id: state.id, version: state.version, owner: state.owner || '未分配', mode: state.mode,
+    stage: state.stage, stageLabel: labels[state.stage], quote: clone(state.quote), review: clone(state.review),
+    product: state.fields.product.value ? PRODUCTS[state.fields.product.value].zh : '待确认',
+    totals: clone(state.totals), issues: clone(state.issues), nextTasks,
+    fields: FIELDS.map(key => ({ key, label: FIELD_LABELS[key], ...clone(state.fields[key]) })),
+    secondaryHowo: state.fields.howoInterest.value === true,
+    newMessagesForHuman: state.newMessagesForHuman,
+    disclosure: state.disclosure,
+  };
+}
+
+return {PRODUCTS,FIELD_LABELS,createCase,respond,handoff,assignOwner,resume,resetCase,review,makeQuoteDraft,manager};
+})();
+const Engine = (() => {
+/** Offline, deterministic Chenlu workflow simulation. No AI, WhatsApp or network. */
+const {createCase,respond,PRODUCTS}=BaseEngine;
+
+const TEAM = Object.freeze([
+  { id: 'a', name: '业务员 A', region: '东非', initial: 'A' },
+  { id: 'b', name: '业务员 B', region: '东非', initial: 'B' },
+  { id: 'c', name: '业务员 C', region: '西非', initial: 'C' },
+  { id: 'd', name: '业务员 D', region: '西非 · 法语', initial: 'D' },
+  { id: 'e', name: '业务员 E', region: '中东', initial: 'E' },
+  { id: 'f', name: '业务员 F', region: '西非', initial: 'F' },
+].map(Object.freeze));
+
+const SCENARIO = Object.freeze([
+  {
+    title: 'Facebook 广告询盘',
+    text: 'Hi, I saw your Facebook ad. We need 3 low-bed semi-trailers. Trailer capacity: 60 t each. Can you help?',
+    zh: '您好，我看到你们的 Facebook 广告。我们需要 3 台低平板半挂车，希望每台额定载重 60 吨，可以介绍一下吗？',
+  },
+  {
+    title: '重量与目的地',
+    text: 'Each machine weighs 45 t, excluding attachments. Plus 3 t attachments on the same trailer with the machine. Destination country: Tanzania. Port: Dar es Salaam.',
+    zh: '每台主机重 45 吨，不含附件；另加 3 吨附件，与主机同车运输。目的国是坦桑尼亚，目的港是达累斯萨拉姆。',
+  },
+  {
+    title: '尺寸与工况',
+    text: 'Transport dimensions are 11.2 x 3.3 x 3.6 m. We already have HOWO 6x4 tractors. The trailers will run on public roads and in the mine.',
+    zh: '设备运输尺寸是 11.2 × 3.3 × 3.6 米。我们已有 HOWO 6×4 牵引车，拖车会用于公路和矿区运输。',
+  },
+  {
+    title: '明确采购意向',
+    text: 'Please send a formal CIF quotation to Dar es Salaam for our procurement team. We plan to place the order this month. Our project starts next month.',
+    zh: '请提供到达累斯萨拉姆的正式 CIF 报价，供采购团队审核。我们计划本月下单，项目下个月启动。',
+  },
+  {
+    title: '人工阶段参数修订',
+    text: 'One correction: transport width is now 3.5 m, not 3.3 m. Length and height remain the same. I will send the machine drawings and photos later.',
+    zh: '更正一下：运输宽度现在是 3.5 米，不是 3.3 米，长和高不变。我稍后会发设备图纸和照片。',
+  },
+].map(Object.freeze));
+
+const REPLIES = [
+  {
+    reply: 'Thanks for getting in touch. What will you be carrying on each trailer, and how much does it weigh including attachments? Also, which country and port will the trailers be shipped to?',
+    zh: '谢谢咨询。每台挂车要运什么设备，含附件一共多重？另外，拖车计划运到哪个国家、哪个港口？',
+  },
+  {
+    reply: 'Thanks, that’s 48 t including the attachments. What are the machine’s length, width and height in transport position? And which tractor model will you use to pull the trailers?',
+    zh: '明白，含附件就是 48 吨。设备运输状态下的长、宽、高分别是多少？您打算用哪款牵引车来配这些挂车？',
+  },
+  {
+    reply: 'Got it. When are you planning to place the order? And would you prefer FOB, or a CIF quote to Dar es Salaam?',
+    zh: '明白。您计划什么时候下单？报价是希望按 FOB，还是报到达累斯萨拉姆的 CIF？',
+  },
+];
+
+const HANDOFF = {
+  reply: 'I’ll bring in our East Africa sales colleague to work on your CIF quotation. They’ll continue with you here and check the specification, freight, insurance and delivery timing before confirming an offer.',
+  zh: '我请负责东非的业务员跟进您这份 CIF 询价，接下来还是在这里沟通。正式报价前，同事会先核实配置、运费、保险和交期。',
+};
+
+const validOwner = id => TEAM.some(person => person.id === id);
+const member = id => TEAM.find(person => person.id === id);
+const trim = value => String(value ?? '').trim();
+
+function createDemo() {
+  const baseState = createCase({ id: 'CL-LEON-SIM-001' });
+  // Reuse extraction only: its older automated replies are not part of this demo.
+  baseState.mode = 'human';
+  return {
+    step: 0, mode: 'ai', owner: null, messages: [],
+    fields: {
+      product: null, quantity: null, requestedCapacity: null, transportWeight: null,
+      dimensions: null, country: null, port: null, tractor: null, usage: null,
+      timeline: null, incoterm: null,
+    },
+    version: 1, intent: false, reasons: [], tasks: [], notes: [], guidance: [], audit: [],
+    pending: null, epoch: 0, draft: null, notice: '', baseState,
+    inboundIds: [], clock: 0,
+  };
+}
+
+function time(state) {
+  const minutes = 9 * 60 + state.clock++;
+  return `${String(Math.floor(minutes / 60) % 24).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;
+}
+
+function record(state, text) {
+  state.audit.push({ id: `audit-${state.audit.length + 1}`, text, time: time(state) });
+}
+
+function message(state, role, text, zh = '', by) {
+  const result = { id: `message-${state.messages.length + 1}`, role, text, zh, time: time(state) };
+  if (by) result.by = by;
+  state.messages.push(result);
+  return result;
+}
+
+function cancelPending(state) {
+  state.pending = null;
+  state.epoch += 1;
+}
+
+function extractFields(state, text) {
+  const previousVersion = state.version;
+  const previousTimeline = state.fields.timeline;
+  respond(state.baseState, text);
+  const f = state.baseState.fields;
+  const value = key => f[key].value;
+  const number = (key, suffix) => value(key) === null ? null : `${value(key)}${suffix}`;
+  const dimensions = ['transportLengthM', 'transportWidthM', 'transportHeightM'].map(value);
+  Object.assign(state.fields, {
+    product: value('product') ? PRODUCTS[value('product')].zh : null,
+    quantity: number('quantity', ' 台'),
+    requestedCapacity: number('trailerCapacityRequestedT', ' t'),
+    transportWeight: state.baseState.totals.transportWeightT === null ? null : `${state.baseState.totals.transportWeightT} t / 台`,
+    dimensions: dimensions.every(v => v !== null) ? `${dimensions.join(' × ')} m` : null,
+    country: value('destinationCountry'), port: value('destinationPort'),
+    tractor: value('currentTractor'),
+    usage: ({ highway: '公路', mine: '矿区', highway_and_mine: '公路与矿区' })[value('usage')] ?? null,
+    incoterm: value('incoterm'),
+  });
+  if (/place the order this month/iu.test(text) && /project starts next month/iu.test(text)) {
+    state.fields.timeline = '本月计划下单；下月项目启动（交期待核）';
+  }
+  state.version = state.baseState.version;
+  if (previousTimeline !== null && previousTimeline !== state.fields.timeline && state.version === previousVersion) {
+    state.version += 1;
+    state.baseState.version = state.version;
+  }
+  if (state.version !== previousVersion) {
+    state.draft = null;
+    for (const task of state.tasks) if (task.status === 'todo' && task.requiredVersion !== undefined) task.requiredVersion = state.version;
+    record(state, `需求更新为 v${state.version}；旧回复草稿失效，当前配置与价格仍待核。`);
+  }
+}
+
+function ensureTasks(state) {
+  const definitions = [
+    { id: 'followup', title: '接手并跟进采购需求', due: '今天 15:00' },
+    { id: 'documents', title: '向客户索取设备图纸、照片和鞍座资料', due: '今天 15:00', requiredVersion: state.version },
+    { id: 'review', title: '配置、价格、运费与交期待人工核验', due: '资料齐备后', requiredVersion: state.version },
+  ];
+  for (const definition of definitions) {
+    if (!state.tasks.some(task => task.id === definition.id)) state.tasks.push({ ...definition, owner: state.owner, status: 'todo' });
+  }
+}
+
+function qualify(state, text) {
+  return state.fields.country === 'Tanzania' && state.baseState.fields.quantity.value > 0
+    && state.fields.incoterm === 'CIF' && /formal.*quotation/iu.test(text)
+    && /procurement team/iu.test(text) && /place the order this month/iu.test(text);
+}
+
+/** Returns false for empty or duplicate input. Translation is supplied fixed copy. */
+function receive(state, id, text, zh = '') {
+  if (!trim(id) || !trim(text) || state.inboundIds.includes(String(id))) return false;
+  state.inboundIds.push(String(id));
+  cancelPending(state);
+  message(state, 'customer', trim(text), trim(zh));
+  extractFields(state, text);
+  if (state.mode !== 'ai') {
+    state.notice = '新客户消息已保留；自动回复暂停，等待当前负责人处理。';
+    record(state, '保留人工阶段客户消息，未自动回复。');
+    return true;
+  }
+  if (qualify(state, text)) {
+    state.intent = true;
+    state.reasons = ['3 台采购需求及运输参数明确', '要求正式 CIF 报价供采购团队审核', '计划本月下单，项目下月启动'];
+    state.owner = 'a';
+    message(state, 'ai', HANDOFF.reply, HANDOFF.zh);
+    state.mode = 'waiting';
+    ensureTasks(state);
+    state.notice = '优先跟进询盘已按东非演示规则分给业务员 A，等待接管；AI 已暂停。';
+    record(state, 'AI 根据采购信号主动交接给东非业务员 A；优先跟进不代表保证成交。');
+    return true;
+  }
+  const scenarioIndex = SCENARIO.findIndex(item => item.text === text);
+  const preset = REPLIES[scenarioIndex];
+  if (preset) {
+    state.pending = { token: state.epoch, reply: preset.reply, zh: preset.zh };
+    state.notice = '正在模拟准备回复；人工接管可以立即取消。';
+  } else {
+    state.notice = '消息已记录；这个离线案例没有该消息的预设回复。';
+  }
+  return true;
+}
+
+function advance(state) {
+  if (state.step >= SCENARIO.length) {
+    state.notice = '本轮模拟询盘已全部到达，可以继续人工跟进或重新演示。';
+    return state;
+  }
+  const item = SCENARIO[state.step];
+  receive(state, `scenario-${state.step + 1}`, item.text, item.zh);
+  state.step += 1;
+  return state;
+}
+
+function flushAI(state, token) {
+  if (state.mode !== 'ai' || !state.pending || state.pending.token !== token) return false;
+  const { reply, zh, sources = [], sourceLabel } = state.pending;
+  state.pending = null;
+  const sent = message(state, 'ai', reply, zh);
+  if (sources.length) { sent.sources = structuredClone(sources); sent.sourceLabel = sourceLabel || '知识库依据'; }
+  state.notice = '预设英文回复已显示，中文为固定演示译文。';
+  return true;
+}
+
+function takeover(state, owner = state.owner || 'a') {
+  if (!validOwner(owner)) { state.notice = '请选择有效业务员。'; return false; }
+  if (state.owner && state.owner !== owner) { state.notice = '客户已有负责人，请由 Leon 改派后接手。'; return false; }
+  if (state.mode === 'human') { state.notice = '当前业务员已经接管。'; return false; }
+  cancelPending(state);
+  state.draft = null;
+  state.owner = owner;
+  state.mode = 'human';
+  ensureTasks(state);
+  state.notice = `${member(owner).name} 已接管，自动回复暂停。`;
+  record(state, `${member(owner).name} 确认接管；取消所有待发送自动回复。`);
+  return true;
+}
+
+function reassign(state, owner) {
+  if (!validOwner(owner)) { state.notice = '请选择有效业务员。'; return false; }
+  if (state.owner === owner) { state.notice = '该业务员已经是负责人。'; return false; }
+  const previous = state.owner;
+  cancelPending(state);
+  state.draft = null;
+  state.owner = owner;
+  state.mode = 'waiting';
+  ensureTasks(state);
+  for (const task of state.tasks) if (task.status === 'todo') task.owner = owner;
+  const unreadGuidance = state.guidance.filter(item => item.status === 'unread');
+  for (const item of unreadGuidance) item.owner = owner;
+  state.notice = `已改派给${member(owner).name}，等待确认接管；AI 保持暂停。`;
+  record(state, `Leon 将负责人从${previous ? member(previous).name : '未分配'}改派为${member(owner).name}；未完成待办同步转交。`);
+  if (unreadGuidance.length) record(state, `${unreadGuidance.length} 条未确认指导由${previous ? member(previous).name : '未分配'}转交给${member(owner).name}。`);
+  return true;
+}
+
+function sendHuman(state, text, zh = '') {
+  if (state.mode !== 'human' || !validOwner(state.owner) || !trim(text)) {
+    state.notice = '请先确认接管，再发送非空消息。'; return false;
+  }
+  cancelPending(state);
+  message(state, 'sales', trim(text), trim(zh), state.owner);
+  state.draft = null;
+  state.notice = `${member(state.owner).name} 的消息已在本地演示中显示；未发送到 WhatsApp。`;
+  record(state, `${member(state.owner).name} 发送人工消息（本地模拟）。`);
+  return true;
+}
+
+function schedule(state, due) {
+  if (!state.owner || !trim(due)) { state.notice = '请先分配负责人并填写跟进时间。'; return false; }
+  ensureTasks(state);
+  const task = state.tasks.find(item => item.id === 'followup');
+  task.due = trim(due);
+  task.owner = state.owner;
+  task.status = 'todo';
+  state.notice = `跟进提醒已设为：${task.due}。`;
+  record(state, `${member(state.owner).name} 的跟进时间设为 ${task.due}。`);
+  return true;
+}
+
+function addNote(state, text) {
+  if (!trim(text)) { state.notice = '备注不能为空。'; return false; }
+  state.notes.push({ id: `note-${state.notes.length + 1}`, text: trim(text), by: 'Leon', time: time(state) });
+  state.notice = '内部备注已保存，客户聊天中不显示。';
+  record(state, 'Leon 添加内部备注。');
+  return true;
+}
+
+/** Manager-to-sales instruction: never part of the customer conversation. */
+function addGuidance(state, text) {
+  if (!validOwner(state.owner) || !trim(text)) {
+    state.notice = '请先分配负责人，再填写内部指导。'; return false;
+  }
+  state.guidance.push({
+    id: `guidance-${state.guidance.length + 1}`, text: trim(text), owner: state.owner,
+    author: 'Leon', status: 'unread', time: time(state),
+  });
+  state.notice = `内部指导已发给${member(state.owner).name}，客户聊天中不显示。`;
+  record(state, `Leon 给${member(state.owner).name}添加内部指导（未向客户发送）。`);
+  return true;
+}
+
+function acknowledgeGuidance(state, id, owner = state.owner) {
+  const item = state.guidance.find(entry => entry.id === id);
+  if (!item || state.mode !== 'human' || owner !== state.owner || item.owner !== owner) {
+    state.notice = '只有当前已接管的负责人可以确认这条指导。'; return false;
+  }
+  if (item.status === 'acknowledged') { state.notice = '这条指导已经确认。'; return false; }
+  item.status = 'acknowledged';
+  state.notice = `${member(owner).name} 已确认收到 Leon 的指导。`;
+  record(state, `${member(owner).name} 确认收到指导 ${item.id}。`);
+  return true;
+}
+
+function completeTask(state, id) {
+  const task = state.tasks.find(item => item.id === id);
+  if (!task || id !== 'documents' || state.mode !== 'human') {
+    state.notice = '本演示只可标记“已向客户索取资料”；报价核验仍待真实审核。'; return false;
+  }
+  if (task.status === 'done') { state.notice = '资料索取任务已标记完成。'; return false; }
+  task.status = 'done';
+  state.notice = '已标记向客户索取资料；不代表已经收到或核验图纸。';
+  record(state, `${member(state.owner).name} 标记资料索取完成；资料接收和技术审核仍未确认。`);
+  return true;
+}
+
+/** A draft reply asking for documents, never a quotation or arbitrary translation. */
+function createDraft(state) {
+  if (state.mode !== 'human' || !state.owner) {
+    state.notice = '请先由负责人接管，再准备人工回复草稿。'; return null;
+  }
+  const dimensions = state.fields.dimensions || 'the transport dimensions to be confirmed';
+  const tractor = state.fields.tractor ? `${state.fields.tractor} fifth-wheel details` : 'tractor model and fifth-wheel details';
+  const tractorZh = state.fields.tractor ? `${state.fields.tractor} 鞍座资料` : '牵引车型号和鞍座资料';
+  const terms = state.fields.incoterm ? `${state.fields.incoterm} ` : '';
+  const text = `Hi Daniel, I’m Sales ${member(state.owner).initial} at Chenlu. I’ll take it from here.${state.fields.dimensions ? ` Thanks for clarifying the transport dimensions: ${dimensions}.` : ''}\n\nCould you send the machine drawings/photos and ${tractor}? What arrival date do you need? I’ll check the configuration and commercial terms with our team before sending your formal ${terms}quote.`;
+  const zh = `Daniel 您好，我是辰陆业务员 ${member(state.owner).initial}，接下来由我跟进。${state.fields.dimensions ? `谢谢您说明运输尺寸：${dimensions}。` : ''}\n\n麻烦发一下设备图纸或照片，以及${tractorZh}。您希望拖车什么时候到？我会和同事核实配置及商务条件后，再给正式 ${terms}报价。`;
+  state.draft = { text, zh, owner: state.owner, version: state.version };
+  state.notice = '已生成索取资料及核价的预设回复草稿，需要人工确认；未生成价格。';
+  return state.draft;
+}
+
+function sendDraft(state) {
+  const draft = state.draft;
+  if (!draft || draft.owner !== state.owner || draft.version !== state.version || state.mode !== 'human') {
+    state.draft = null;
+    state.notice = '草稿已失效或尚未接管，请按当前负责人和需求版本重新生成。'; return false;
+  }
+  return sendHuman(state, draft.text, draft.zh);
+}
+
+return {TEAM,SCENARIO,createDemo,receive,advance,flushAI,takeover,reassign,sendHuman,schedule,addNote,addGuidance,acknowledgeGuidance,completeTask,createDraft,sendDraft};
+})();</script>
+  <script>const Knowledge = (() => {
+/**
+ * Offline knowledge-library simulation. No model, document parser or network.
+ * Answers are the exact bilingual copy of one active, published document.
+ * The sample material demonstrates reception rules; it does not approve a
+ * vehicle configuration, a quotation, certification or delivery commitment.
+ */
+
+const UPDATED_AT = '2026-10-14';
+const SOURCE = '业务整理·演示资料';
+const CATEGORIES = ['产品资料', '接待规则', '报价须知'];
+const PRODUCTS = ['lowbed', 'flatbed', 'dump', 'cement', 'tanker', 'howo', 'all'];
+const clean = value => String(value ?? '').trim();
+const normalize = value => clean(value).toLowerCase().replace(/[‐‑–—]/gu, '-').replace(/\s+/gu, ' ');
+
+const EXAMPLE_DOCUMENTS = [
+  {
+    id: 'lowbed-intake', title: '低平板 · 先问什么、怎么确认重量',
+    category: '产品资料', product: 'lowbed',
+    content: '可以先按低平板的方向看。你准备运什么设备？主机和一起装车的附件分别有多重？有运输状态的尺寸或照片，也可以一起发我，我们再看怎么配车。',
+    answerEn: 'We can start with a low-bed option. What equipment will you carry, and how much do the machine and any attachments weigh? A photo or the transport dimensions would also help us work out the next step.',
+    keywords: ['low-bed', 'low bed', 'lowbed', 'low-bed semi-trailer', '低平板', '低板', 'machine weight', 'equipment weight', 'attachments', '设备重量', '附件重量', '运输尺寸', 'excavator', '挖掘机'],
+  },
+  {
+    id: 'lowbed-loading', title: '低平板 · 爬梯与可拆卸鹅颈怎么选',
+    category: '产品资料', product: 'lowbed',
+    content: '主要区别在装车方式：爬梯一般从车尾上下车；可拆卸鹅颈可以打开前端，让设备从前面装上去。怎么选，得看设备离地间隙、允许的爬坡角度和装卸场地。你准备运哪种设备？发张照片，我让同事一起看。',
+    answerEn: 'The main difference is how you load the equipment. Ramps usually load from the rear; a detachable gooseneck opens the front for loading. The better fit depends on the machine’s ground clearance, approach angle and loading site. What equipment are you moving? A photo would help our team check.',
+    keywords: ['detachable gooseneck', 'gooseneck', 'ramps', 'ramp', 'loading method', 'loading equipment', 'rear loading', 'front loading', '爬梯', '鹅颈', '可拆卸', '装车方式', '装卸方式', '前装', '后装'],
+  },
+  {
+    id: 'flatbed', title: '平板半挂车 · 集装箱与普货询盘',
+    category: '产品资料', product: 'flatbed',
+    content: '你主要拉集装箱，还是也会装其他货物？如果是集装箱，告诉我箱型和装货后的最大总重就行；牵引车和常走的路线也发我，我们一起核一下锁位和车辆匹配。',
+    answerEn: 'Will you mainly carry containers, or other cargo as well? For containers, please share the sizes and maximum loaded weight. The tractor details and usual route will help our team check the lock positions and trailer match.',
+    keywords: ['flatbed', 'flat-bed', 'container trailer', 'container', 'containers', '20-foot', '40-foot', '平板', '集装箱', '锁位', '普货'],
+  },
+  {
+    id: 'cement', title: '散装水泥半挂车 · 容积与卸料条件',
+    category: '产品资料', product: 'cement',
+    content: '是运输干水泥吗？你想要多大的容积、每趟大约装多重？卸料现场有没有气源，也一起告诉我。有了这些资料，同事就能接着核对罐体和卸料配置。',
+    answerEn: 'Will you be carrying dry cement? What volume and load weight do you have in mind? Please also let me know whether the unloading site has an air supply, so our team can check the tank and unloading setup.',
+    keywords: ['bulk cement', 'cement', 'powder', 'pneumatic', 'air supply', '散装水泥', '水泥', '粉罐', '粉料', '气源', '卸料气压'],
+  },
+  {
+    id: 'dump', title: '自卸半挂车 · 物料与卸料工况',
+    category: '产品资料', product: 'dump',
+    content: '你主要运砂石、煤，还是其他物料？每车大约装多重，卸货场地是什么情况？如果有现场照片也发我，方便同事核对厢体和举升配置。',
+    answerEn: 'Will you be hauling sand, gravel, coal or another material? What is the expected load per trip, and what is the unloading site like? Site photos would help our team check the body and tipping setup.',
+    keywords: ['dump', 'tipper', 'tipping', 'sand', 'gravel', 'coal', '自卸', '砂石', '煤', '举升', '卸货场地'],
+  },
+  {
+    id: 'tanker', title: '油罐半挂车 · 介质、分仓与当地要求',
+    category: '产品资料', product: 'tanker',
+    content: '你准备运柴油、汽油，还是其他液体？想做多大容积、几个分仓？装卸方式和目的国要求也一起发我，同事会按这些信息核对罐体材料和配置。',
+    answerEn: 'Will you carry diesel, petrol or another liquid? What volume and number of compartments are you considering? Please share the loading method and destination requirements too, so our team can review the tank material and configuration.',
+    keywords: ['oil tank', 'tanker', 'fuel', 'diesel', 'petrol', 'compartments', '油罐', '罐车', '柴油', '汽油', '分仓'],
+  },
+  {
+    id: 'howo', title: 'HOWO 牵引车 · 车辆与挂车匹配',
+    category: '产品资料', product: 'howo',
+    content: '你在看新车还是二手车？告诉我目的国、左舵或右舵需求，以及准备配什么挂车。有牵引车型号或鞍座资料的话也可以发来，同事会接着核对车辆来源、当地要求和匹配情况。',
+    answerEn: 'Are you looking for new or used trucks? Please share the destination, left- or right-hand drive preference, and the trailer you plan to use. If you already have a tractor model or fifth-wheel details, send those too and our team can check the options and compatibility.',
+    keywords: ['howo', 'tractor', 'truck', 'fifth-wheel', 'fifth wheel', '牵引车', '卡车', '鞍座', '左舵', '右舵'],
+  },
+  {
+    id: 'quote-policy', title: '商务条件 · 报价、交期与其他承诺',
+    category: '报价须知', product: 'all',
+    content: '这点我请负责的同事核实一下，确认后再给你答复。',
+    answerEn: 'Let me check that with the colleague handling your enquiry. They’ll confirm the details with you before anything is agreed.',
+    keywords: ['price', 'cost', 'quote', 'quotation', 'cif', 'fob', 'delivery', 'lead time', 'lead-time', 'guarantee', 'certification', '报价', '价格', '多少钱', '运费', '交期', '交货', '到港', '保证', '认证', '质保', '付款'],
+  },
+  {
+    id: 'reception-policy', title: '接待交接 · 意向明确后交给业务员',
+    category: '接待规则', product: 'all',
+    content: '我请负责这块市场的同事接着和你聊。前面的需求我会一起交给他，你不用再说一遍。',
+    answerEn: 'I’ll bring in the colleague who looks after your market. I’ll pass along what you’ve shared, so you won’t need to start again.',
+    keywords: ['handoff', 'handover', 'sales colleague', 'salesperson', 'reception', 'follow up', '接待', '交接', '转人工', '业务员', '分配', '跟进', '重复说明'],
+  },
+];
+
+/** Fresh, serializable local state. Every document and keyword array is isolated. */
+function createKnowledge() {
+  return {
+    documents: EXAMPLE_DOCUMENTS.map(document => ({
+      ...document, keywords: [...document.keywords], source: SOURCE,
+      revision: 1, status: 'published', enabled: true, updatedAt: UPDATED_AT,
+    })),
+    audit: [],
+    revision: 1,
+  };
+}
+
+function getDocument(kb, id) {
+  return kb?.documents?.find(document => document.id === id) ?? null;
+}
+
+const active = document => document?.status === 'published' && document.enabled === true;
+const excerpt = document => document.content.length > 96 ? `${document.content.slice(0, 96)}…` : document.content;
+const citation = document => ({
+  id: document.id, title: document.title, revision: document.revision, excerpt: excerpt(document),
+});
+
+/** Citations are snapshots; later edits cannot silently rewrite an old reply. */
+function sourceFor(kb, id) {
+  const document = getDocument(kb, id);
+  return active(document) ? [citation(document)] : [];
+}
+
+// Exact topic gates keep a disabled specific FAQ from falling back to a
+// vaguely related article. This small model deliberately avoids claiming
+// semantic search, automatic translation or free-form AI understanding.
+function topicFor(query) {
+  if (/(?:\b(?:ramps?|gooseneck|rear loading|front loading)\b|爬梯|鹅颈|可拆卸|装车方式|前装|后装)/iu.test(query)) return 'lowbed-loading';
+  return null;
+}
+
+function needsReview(query) {
+  return /(?:\b(?:price|prices|pricing|cost|costs|quote|quotation|quotations|cif|fob|delivery|deliver|lead[ -]?time|guarantee|guaranteed|warranty|payment|certification|certified|certificates?|discount|in stock)\b|how much|报价|价钱|价格|多少钱|费用|运费|交期|交货|到港|现货|保证|保修|质保|认证|证书|付款|定金|折扣|优惠)/iu.test(query);
+}
+
+function hasKeyword(query, keyword) {
+  const term = normalize(keyword);
+  if (!term) return false;
+  if (/^[a-z0-9 -]+$/u.test(term)) {
+    // Do not match "cost" inside an unrelated word or "ram" in "program".
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+    return new RegExp(`(?:^|[^a-z0-9])${escaped}(?=$|[^a-z0-9])`, 'u').test(query);
+  }
+  return query.includes(term);
+}
+
+/** Only reviewed, enabled copy can be retrieved; an empty query lists it. */
+function searchKnowledge(kb, query = '') {
+  const normalized = normalize(query);
+  const topic = topicFor(normalized);
+  const review = needsReview(normalized);
+  return (kb?.documents ?? []).filter(active).map(document => {
+    if (review && document.id !== 'quote-policy') return null;
+    if (topic && !review && document.id !== topic) return null;
+    let score = normalized ? 0 : 1;
+    for (const keyword of document.keywords) {
+      if (hasKeyword(normalized, keyword)) score += keyword.includes(' ') ? 5 : 3;
+    }
+    if (normalized && normalize(document.title).includes(normalized)) score += 8;
+    if (review && document.id === 'quote-policy') score += 20;
+    if (topic === document.id) score += 20;
+    return score ? { ...citation(document), score } : null;
+  }).filter(Boolean).sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
+}
+
+/** Returns exact saved bilingual copy, never invents an answer from a near hit. */
+function askKnowledge(kb, query) {
+  const normalized = normalize(query);
+  if (!normalized) return {
+    status: 'no_match', answer: '', translation: '', sources: [], reason: '请先输入要测试的客户问题。',
+  };
+  if (needsReview(normalized)) {
+    const document = getDocument(kb, 'quote-policy');
+    return {
+      status: 'needs_review',
+      answer: active(document) ? document.answerEn : 'Let me have our sales colleague check that for you before we confirm anything.',
+      translation: active(document) ? document.content : '这部分我请业务员核实后，再给你确认。',
+      sources: sourceFor(kb, 'quote-policy'),
+      reason: '涉及价格、交付承诺或商务条件，需要业务员核实；本演示未生成或发送正式报价。',
+    };
+  }
+  const [hit] = searchKnowledge(kb, normalized);
+  if (!hit) return {
+    status: 'no_match', answer: '', translation: '', sources: [],
+    reason: '没有找到已发布且启用的对应资料，请交由业务员确认。',
+  };
+  const document = getDocument(kb, hit.id);
+  return {
+    status: 'answered', answer: document.answerEn, translation: document.content,
+    sources: [citation(document)],
+    reason: '使用已发布资料中的预写双语答复；真实上线时再接入检索与模型。',
+  };
+}
+
+function record(kb, action, document) {
+  kb.revision += 1;
+  kb.audit.push({
+    id: `knowledge-event-${kb.audit.length + 1}`, action,
+    documentId: document.id, title: document.title, revision: document.revision,
+    date: UPDATED_AT,
+  });
+}
+
+/** Saving retires the previous copy until this draft is reviewed and published. */
+function saveDocument(kb, input) {
+  if (!kb || !Array.isArray(kb.documents) || !input || typeof input !== 'object') {
+    return { ok: false, error: '资料格式不正确。' };
+  }
+  const existing = input.id ? getDocument(kb, input.id) : null;
+  if (input.id && !existing) return { ok: false, error: '没有找到这份资料。' };
+  const title = clean(input.title);
+  const content = clean(input.content);
+  const answerEn = clean(input.answerEn);
+  const category = clean(input.category);
+  const product = clean(input.product);
+  if (!title || !content || !answerEn) return { ok: false, error: '请填写标题、中文参考答复和对应英文答复。' };
+  if (!CATEGORIES.includes(category) || !PRODUCTS.includes(product)) {
+    return { ok: false, error: '请选择有效的资料分类和车型。' };
+  }
+  if (!Array.isArray(input.keywords) || input.keywords.some(keyword => typeof keyword !== 'string')) {
+    return { ok: false, error: '检索关键词需要使用文字列表。' };
+  }
+  const keywords = [...new Set(input.keywords.map(clean).filter(Boolean))];
+  if (!keywords.length) return { ok: false, error: '请至少填写一个检索关键词。' };
+  let id = existing?.id;
+  if (!id) {
+    let number = 1;
+    while (getDocument(kb, `knowledge-${number}`)) number += 1;
+    id = `knowledge-${number}`;
+  }
+  const document = {
+    id, title, category, product, content, answerEn, keywords,
+    source: clean(input.source) || SOURCE,
+    revision: existing ? existing.revision + 1 : 1,
+    status: 'draft', enabled: false, updatedAt: UPDATED_AT,
+  };
+  if (existing) kb.documents[kb.documents.findIndex(item => item.id === id)] = document;
+  else kb.documents.push(document);
+  record(kb, existing ? 'save_draft' : 'create_draft', document);
+  return { ok: true, document };
+}
+
+/** Publishing is the explicit review action and enables the current revision. */
+function publishDocument(kb, id) {
+  const document = getDocument(kb, id);
+  if (!document || document.status !== 'draft' || !clean(document.content) || !clean(document.answerEn)) return false;
+  document.status = 'published';
+  document.enabled = true;
+  document.updatedAt = UPDATED_AT;
+  record(kb, 'publish', document);
+  return true;
+}
+
+/** Drafts cannot bypass review through the enable switch. */
+function toggleDocument(kb, id) {
+  const document = getDocument(kb, id);
+  if (!document || document.status !== 'published') return false;
+  document.enabled = !document.enabled;
+  document.updatedAt = UPDATED_AT;
+  record(kb, document.enabled ? 'enable' : 'disable', document);
+  return true;
+}
+
+return {createKnowledge,getDocument,sourceFor,searchKnowledge,askKnowledge,saveDocument,publishDocument,toggleDocument};
+})();</script>
+  <script>// 合成会话，仅供 Leon 管理台浏览与点评；没有真实客户或消息发送。
+// 业务员 A 的低平板主线由演示引擎处理，本文件只提供业务员 B–F 的样例。
+// 以下公司、联系人及采购需求均为虚构；没有已审批的价格、配置或交期。
+const EXAMPLE_CASES = [
+  {
+    id: 'sample-b',
+    name: 'Njeri Kato',
+    company: 'Kora Cargo（模拟）',
+    initial: 'N',
+    country: 'Kenya',
+    region: '东非',
+    owner: 'b',
+    product: '平板半挂车',
+    status: '待补资料',
+    flag: 'normal',
+    summary: '3 台集装箱平板挂车，待补货重与牵引车参数；价格、交期未核准。',
+    messages: [
+      {
+        role: 'customer',
+        text: 'We’re looking for 3 flatbed semi-trailers for Kenya, to carry both 20-foot and 40-foot containers.',
+        zh: '我们想采购 3 台平板半挂车用于肯尼亚，运输 20 英尺和 40 英尺集装箱。',
+        time: '09:20'
+      },
+      {
+        role: 'ai',
+        text: 'For the 20- and 40-foot containers, what is the heaviest loaded container you expect to carry? Please also send the model or a photo of your tractor so we can check the trailer connection.',
+        zh: '这两种规格的集装箱，装货后最重会达到多少？也请发一下牵引车的型号或照片，方便我们检查挂车连接是否匹配。',
+        time: '09:21'
+      },
+      {
+        role: 'sales',
+        by: '业务员 B',
+        text: 'I’ll be your contact for this enquiry. Please send the loading list and tractor connection details when ready; we’ll check the container lock positions and tractor match, then confirm pricing and lead time.',
+        zh: '这笔询盘由我跟进。装载清单和牵引车连接参数准备好后请发给我；我们先检查集装箱锁位及牵引车匹配，再确认价格和交期。',
+        time: '09:25'
+      },
+      {
+        role: 'customer',
+        text: 'I’ll send the loading list first. I still need to confirm the maximum loaded container weight and get the tractor details.',
+        zh: '我先把装载清单发过来。集装箱装货后的最大重量还要确认，牵引车资料也需要补齐。',
+        time: '09:28'
+      }
+    ],
+    guidance: [],
+    audit: [],
+    tasks: [],
+    mode: 'human',
+    version: 1
+  },
+  {
+    id: 'sample-c',
+    name: 'Kojo Mensa',
+    company: 'Aruna Cement（模拟）',
+    initial: 'K',
+    country: 'Ghana',
+    region: '西非',
+    owner: 'c',
+    product: '散装水泥半挂车',
+    status: '待卸料条件',
+    flag: 'attention',
+    summary: '2 台散装水泥挂车，待核载重、容积和气源；价格、交期未核准。',
+    messages: [
+      {
+        role: 'customer',
+        text: 'We’re looking for 2 bulk cement semi-trailers for Ghana, with a capacity of around 45 cubic metres each.',
+        zh: '我们想采购 2 台散装水泥半挂车用于加纳，每台意向容积约 45 立方米。',
+        time: '10:05'
+      },
+      {
+        role: 'ai',
+        text: 'To check whether around 45 m³ suits your operation, how much cement do you want to carry per trip? Also, does the unloading site supply compressed air, or would you need an onboard air system?',
+        zh: '为了判断约 45 立方米是否适合您的运输需求，您希望每趟装多少水泥？卸料场地有压缩空气供应，还是需要车辆自带气源？',
+        time: '10:06'
+      },
+      {
+        role: 'customer',
+        text: 'We carry dry Portland cement. The plant supplies compressed air, but I’ll need to check its pressure and flow, as well as the payload we need.',
+        zh: '我们运输干燥普通硅酸盐水泥。工厂有压缩空气，但压力、流量和所需载重还要核实。',
+        time: '10:10'
+      },
+      {
+        role: 'sales',
+        by: '业务员 C',
+        text: 'Could you ask the plant for its air pressure and flow, and confirm the tonnes per load? I’ll have our engineer review those against your 45 m³ request before we work out the quotation and lead time.',
+        zh: '请向工厂了解一下气源压力和流量，再确认每趟需要装多少吨。我会请工程师结合这些资料审核您约 45 立方米的需求，再核算报价和交期。',
+        time: '10:14'
+      }
+    ],
+    guidance: [],
+    audit: [],
+    tasks: [],
+    mode: 'human',
+    version: 1
+  },
+  {
+    id: 'sample-d',
+    name: 'Moussa Daro',
+    company: 'Tero Chantier（模拟）',
+    initial: 'M',
+    country: 'Senegal',
+    region: '法语市场',
+    owner: 'd',
+    product: '自卸半挂车',
+    status: '待核物料与工况',
+    flag: 'attention',
+    summary: '2 台自卸挂车运输砂石，待核密度和卸料工况；价格、交期未核准。',
+    messages: [
+      {
+        role: 'customer',
+        text: 'Nous cherchons deux semi-remorques bennes pour transporter du sable et du gravier au Sénégal.',
+        zh: '我们想采购两台自卸半挂车，在塞内加尔运输砂和碎石。',
+        time: '10:30'
+      },
+      {
+        role: 'ai',
+        text: 'Pour le sable et le gravier, quelle charge souhaitez-vous transporter par trajet ? Les zones de déchargement sont-elles plates et stables, ou présentent-elles des pentes et un sol irrégulier ?',
+        zh: '运输砂和碎石时，您希望每趟装多少？卸料区域的地面平整稳固，还是有坡度、凹凸不平的情况？',
+        time: '10:31'
+      },
+      {
+        role: 'customer',
+        text: 'Les trajets passent par des chantiers. Je dois encore vérifier la charge, la densité des matériaux et les conditions des zones de déchargement.',
+        zh: '运输路线经过施工场地。装载重量、物料密度和卸料区域的条件，我还需要核实。',
+        time: '10:35'
+      },
+      {
+        role: 'sales',
+        by: '业务员 D',
+        text: 'Quand vous aurez ces informations, envoyez-les-moi avec quelques photos des zones de déchargement si possible. Notre technicien vérifiera la benne et le système de levage avant que je vous confirme le prix et le délai.',
+        zh: '资料核实后请发给我，如果方便，也附上几张卸料区域的照片。我们的技术人员先检查厢体和举升系统，再由我确认价格和交期。',
+        time: '10:39'
+      }
+    ],
+    guidance: [],
+    audit: [],
+    tasks: [],
+    mode: 'human',
+    version: 1
+  },
+  {
+    id: 'sample-e',
+    name: 'Omar Nadir',
+    company: 'Sora Fuel（模拟）',
+    initial: 'O',
+    country: 'Saudi Arabia',
+    region: '中东',
+    owner: 'e',
+    product: '油罐半挂车',
+    status: '待技术与准入审核',
+    flag: 'attention',
+    summary: '柴油罐车意向，待核分仓、材料及目的国要求；价格、交期未核准。',
+    messages: [
+      {
+        role: 'customer',
+        text: 'We’re looking for a diesel tank semi-trailer for Saudi Arabia, around 33,000 litres with 3 compartments.',
+        zh: '我们想采购油罐半挂车在沙特运输柴油，意向容积约 33,000 升、3 个分仓。',
+        time: '11:10'
+      },
+      {
+        role: 'ai',
+        text: 'For the 33,000-litre diesel tanker, do you have a preferred capacity for each of the three compartments? Please also share any local approval requirements you already have, so our team can check the design against them.',
+        zh: '这台 33,000 升的柴油罐车，三个分仓各需要多大容量？也请发一下您目前掌握的当地准入要求，方便团队核对设计。',
+        time: '11:11'
+      },
+      {
+        role: 'customer',
+        text: 'It’s diesel. We haven’t decided the compartment sizes yet, and I’m still checking the local approval requirements.',
+        zh: '运输的是柴油。各仓容量还没有确定，当地准入要求我也还在核实。',
+        time: '11:15'
+      },
+      {
+        role: 'sales',
+        by: '业务员 E',
+        text: 'We can start with your 33,000-litre, three-compartment request. Please send the fuel specification and local requirements when available; I’ll have our engineer review the configuration before we quote and confirm lead time.',
+        zh: '我们可以先按您 33,000 升、三个分仓的意向收集资料。燃料规格和当地要求准备好后请发给我；我会安排工程师审核配置，再报价并确认交期。',
+        time: '11:20'
+      }
+    ],
+    guidance: [],
+    audit: [],
+    tasks: [],
+    mode: 'human',
+    version: 1
+  },
+  {
+    id: 'sample-f',
+    name: 'Ikenna Oru',
+    company: 'Noma Haulage（模拟）',
+    initial: 'I',
+    country: 'Nigeria',
+    region: '西非',
+    owner: 'f',
+    product: 'HOWO 牵引车',
+    status: '待车辆配套确认',
+    flag: 'normal',
+    summary: '2 台新 HOWO 牵引车意向，待核排放与挂车匹配；价格、交期未核准。',
+    messages: [
+      {
+        role: 'customer',
+        text: 'We’re considering 2 HOWO 6×4 tractors for Nigeria. What options would you suggest?',
+        zh: '我们考虑采购 2 台 HOWO 6×4 牵引车用于尼日利亚，您建议看看哪些方案？',
+        time: '11:40'
+      },
+      {
+        role: 'ai',
+        text: 'For the two HOWO 6×4 tractors, are you looking for new or used vehicles, and do you need left-hand drive? Once that’s clear, our sales team can help check the emissions requirements and trailer match.',
+        zh: '这两台 HOWO 6×4 牵引车，您需要新车还是二手车？驾驶位需要在左侧吗？确认后，我们的销售团队会协助核实排放要求和挂车匹配。',
+        time: '11:41'
+      },
+      {
+        role: 'customer',
+        text: 'We’d prefer new vehicles with left-hand drive. We haven’t chosen the trailers yet, and I still need to check the emissions requirement.',
+        zh: '我们倾向新车、左侧驾驶位。挂车还没有选定，排放要求也需要再核实。',
+        time: '11:45'
+      },
+      {
+        role: 'sales',
+        by: '业务员 F',
+        text: 'Thanks. I’ll check the available new left-hand-drive options and the destination requirements. Once you have a trailer in mind, send me its details; we’ll review the match before settling the specification, price and lead time.',
+        zh: '好的，我来核实新车、左侧驾驶位的可选方案和目的国要求。挂车确定后请把资料发给我；我们先审核匹配，再确定配置、价格和交期。',
+        time: '11:50'
+      }
+    ],
+    guidance: [],
+    audit: [],
+    tasks: [],
+    mode: 'human',
+    version: 1
+  }
+];
+</script>
+  <script>/* All interactions are local to this page. Refresh/reset clears synthetic data. */
+(() => {
+  const D = Engine;
+  const K = Knowledge;
+  const $ = selector => document.querySelector(selector);
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const person = id => D.TEAM.find(p => p.id === id);
+  const name = id => person(id)?.name || '尚未分配';
+  let state, examples, view = 'inbox', selectedId = 'main', selectedOwner = 'a', filter = null, detailTab = 'chat', translations = true, timer = null, session = 0, toastTimer, renderedView = null;
+  const defaultKnowledgeQuestion='For my low-bed trailer, what is the difference between ramps and a detachable gooseneck?';
+  let kb, kbSelected='lowbed-loading', kbFilter='all', kbQuery='', kbTestResult=null, kbQuestion=defaultKnowledgeQuestion, kbDrafts={}, kbFeedback='', kbCitation=null, kbAsked=false;
+  const defaultGuidance = '先确认客户期望到港的时间和设备运输状态尺寸。配置、海运费与保险核实后，再给正式 CIF 报价；下月项目启动不等于下月到港。';
+
+  function initialize() {
+    clearTimeout(timer); session++; renderedView=null;
+    state = Object.assign(D.createDemo(), {id:'main',name:'Daniel M.',company:'Kijani Projects（模拟）',initial:'D'});
+    kb=K.createKnowledge();kbSelected='lowbed-loading';kbFilter='all';kbQuery='';kbTestResult=null;kbQuestion=defaultKnowledgeQuestion;kbDrafts={};kbFeedback='';kbCitation=null;kbAsked=false;
+    examples = structuredClone(EXAMPLE_CASES).map((c,i) => ({...c,clock:30+i*4,notes:[],notice:'',pending:null,draft:null,epoch:0}));
+    view='inbox';selectedId='main';selectedOwner='a';filter=null;detailTab='chat';
+  }
+  const allCases = () => [...(state.step ? [state] : []), ...examples];
+  const current = () => selectedId === 'main' ? state : examples.find(c=>c.id===selectedId) || state;
+  const product = c => c.id === 'main' ? c.fields.product || '低平板半挂车' : c.product;
+  const country = c => c.id === 'main' ? c.fields.country || '目的国待收集' : c.country;
+  const status = c => c.id !== 'main' ? c.status : ({ai:'AI 接待中',waiting:'待业务员接手',human:'人工跟进中'})[c.mode];
+  const unread = c => c.guidance.filter(g=>g.status==='unread').length;
+  const summary = c => c.id === 'main' ? `${c.fields.quantity || '数量待确认'} · ${c.fields.port || '目的港待确认'} · ${c.fields.dimensions || '尺寸待补充'}` : c.summary;
+  function toast(message) { clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),4200); }
+  function messageMarkup(m) {
+    const outgoing=m.role!=='customer';
+    const by = m.by?.length===1 ? name(m.by) : m.by;
+    return `<article class="bubble ${outgoing?'out':''}" data-message-role="${esc(m.role)}">${outgoing?`<div class="speaker">辰陆 · ${m.role==='ai'?'AI 接待':esc(by || '人工回复')}</div>`:''}<div>${esc(m.text)}</div>${translations&&m.zh?`<div class="translation">${esc(m.zh)}</div>`:''}<div class="meta"><span>${esc(m.time)}</span>${outgoing?'<span class="ticks">✓✓</span>':''}</div></article>${m.sources?.length?`<div class="reply-sources"><span>${esc(m.sourceLabel||'知识库依据')} · 仅内部可见</span>${sourceChips(m.sources)}</div>`:''}`;
+  }
+  function sourceChips(sources) {
+    return sources.map(s=>`<button class="source-chip" data-action="open-source" data-id="${esc(s.id)}" data-revision="${s.revision}" title="查看这条回答关联的资料">${esc(s.title)} <small>v${s.revision}</small> ↗</button>`).join('');
+  }
+  function panelBlock(title,description,body,extra='') {
+    return `<section class="panel-block ${extra}"><header class="panel-heading"><h3>${title}</h3>${description?`<p class="block-hint">${description}</p>`:''}</header>${body}</section>`;
+  }
+  function messagesMarkup(c, compact=false) {
+    const empty = `<div class="empty-chat"><div class="empty-symbol">↗</div><h3>一条拖车询盘，即将到来</h3><p>Daniel 从 Facebook 广告联系辰陆。点击上方按钮，看团队如何接住这个采购需求。</p></div>`;
+    return `<div class="messages ${compact?'compact-chat':''}" data-chat-log="${esc(c.id)}"><div class="date-tag">模拟对话 · ${compact?esc(c.name):'今天'}</div>${c.messages.length?c.messages.map(messageMarkup).join(''):empty}${c.pending?'<article class="bubble out typing" aria-label="模拟 AI 正在准备回复">辰陆正在回复 <i></i><i></i><i></i></article>':''}</div>`;
+  }
+  function guidanceCards(c, sales=false) {
+    return c.guidance.map(g=>`<article class="guidance-card" data-guidance-id="${esc(g.id)}"><h4>Leon 的内部指导 <span class="badge ${g.status==='acknowledged'?'green':'amber'}">${g.status==='acknowledged'?'已确认收到':'待确认'}</span></h4><p>${esc(g.text)}</p><small>${esc(g.time)} · 发给${esc(name(g.owner))} · 仅内部可见</small>${sales&&g.status==='unread'?`<button data-action="ack" data-id="${esc(g.id)}" ${c.mode!=='human'||g.owner!==selectedOwner?'disabled':''}>确认收到，我来跟进</button>`:''}</article>`).join('');
+  }
+  function tasksMarkup(c, actionable=false) {
+    if(!c.tasks.length) return `<div class="empty-small">${c.id==='main'?'接管后自动建立待办。':'此会话用于展示沟通记录。'}<br>后续资料与价格仍需人工核实。</div>`;
+    return c.tasks.map(t=>`<div class="task ${t.status==='done'?'done':''}"><div class="task-head"><span class="task-icon">${t.status==='done'?'✓':'○'}</span><span>${esc(t.title)}</span></div><small>${esc(name(t.owner))} · ${esc(t.due)}${t.requiredVersion?` · v${t.requiredVersion}`:''}${t.status==='done'?' · 已索取，待客户提供':''}</small>${actionable&&t.id==='documents'&&t.status!=='done'&&c.mode==='human'?'<button class="text-btn" data-action="complete-documents">已向客户索取资料</button>':''}</div>`).join('');
+  }
+  function fieldsMarkup() {
+    const rows=[['product','询购车型'],['quantity','采购数量'],['requestedCapacity','期望额定载重'],['transportWeight','设备运输总重'],['dimensions','运输尺寸'],['country','目的国'],['port','目的港'],['tractor','现有牵引车'],['usage','工况'],['incoterm','贸易条款'],['timeline','采购计划']];
+    return `<dl class="field-grid">${rows.map(([k,l])=>`<div class="field-row ${k==='dimensions'&&state.version>1?'changed':''}"><dt>${l}</dt><dd class="${state.fields[k]?'':'missing'}">${esc(state.fields[k]||'等待客户补充')}</dd></div>`).join('')}</dl><p class="inline-note">${state.fields.transportWeight ? '60 t 是买家期望载重；48 t 是客户自述的设备与附件总重。配置承载能力仍需技术审核。' : '客户自述参数用于记录采购需求，车型配置与承载能力仍需技术核验。'}</p>`;
+  }
+  function contactList(c) {
+    const list = view==='inbox' ? [state] : allCases().filter(item=>item.owner===selectedOwner);
+    return `<aside class="contact-list"><div class="section-title">${view==='sales'?'我负责的客户':'WhatsApp 收件箱'}<span class="count">${list.length}</span></div>${view==='sales'?`<select aria-label="业务员身份" id="sales-person" class="full">${D.TEAM.map(p=>`<option value="${p.id}" ${p.id===selectedOwner?'selected':''}>${p.name} · ${p.region}</option>`).join('')}</select>`:'<div class="search-label">◉ <span>Facebook 广告 → WhatsApp</span></div>'}${list.map(item=>`<button class="contact ${item.id===c.id?'active':''}" data-action="select-case" data-id="${item.id}"><span class="avatar ${item.id==='main'?'green':''}">${item.initial}</span><span class="contact-details"><b>${esc(item.name)}</b><p>${esc(product(item))}</p><span>${esc(status(item))}</span></span>${unread(item)?`<span class="contact-tag">指导 ${unread(item)}</span>`:item.id==='main'?'<span class="contact-tag">主线</span>':''}</button>`).join('')}${!list.length?'<div class="empty-small">暂无分配会话</div>':''}<div class="source-block"><small>本次场景</small><strong>半挂车 / HOWO 出口</strong><p>英文询盘、中文需求卡；人工确认配置、价格与交期。</p></div><div class="list-note">此处模拟一个接待入口下的内部派单。<br>六位业务员及地区分工为演示设置。</div></aside>`;
+  }
+  function composer(c) {
+    if(c.id!=='main') return `<div class="chat-compose"><div class="compose-placeholder">这组会话用于查看交流与内部指导</div><button class="outline" data-view="manager">主管指导</button></div>`;
+    if(c.mode!=='human') return `<div class="chat-compose"><div class="compose-placeholder">${c.mode==='waiting'?'已暂停 AI，等待业务员接手':'AI 接待中，业务员可随时接管'}</div><button class="secondary" data-action="takeover" ${!state.step?'disabled':''}>${c.pending?'立即接管':'人工接手'}</button></div>`;
+    if(c.draft) return `<div class="sales-tools"><div class="draft-copy"><label for="human-draft">人工回复草稿 · 请确认后发送</label><textarea id="human-draft" maxlength="2500">${esc(c.draft.text)}</textarea><div class="zh-preview" id="draft-translation">${esc(c.draft.zh)}</div></div><div class="draft-actions"><span id="draft-hint">预设双语草稿，可编辑英文；编辑后不提供自动翻译。</span><button class="primary" data-action="send-draft">确认发送 <span>↗</span></button></div></div>`;
+    return `<div class="chat-compose"><div class="compose-placeholder">人工跟进中 · AI 已暂停</div><button class="primary" data-action="draft">准备英文回复 →</button></div>`;
+  }
+  function knowledgeContext() {
+    const docs=['lowbed-intake','lowbed-loading','quote-policy'];
+    return `<div class="knowledge-context">${docs.map(id=>{const doc=K.getDocument(kb,id);return `<button class="context-doc" data-action="open-source" data-id="${id}"><span>${esc(doc.title)}</span><small>${doc.status==='published'&&doc.enabled?'已启用':'未用于回复'} · v${doc.revision}</small></button>`}).join('')}<button class="text-btn" data-view="knowledge">管理知识库 / 试问问题 →</button></div>`;
+  }
+  function salesPanel(c) {
+    const owner=c.owner?`<div class="owner-box"><span class="avatar green">${person(c.owner).initial}</span><div><b>${esc(name(c.owner))}</b><small>${c.mode==='waiting'?'待确认接手':'当前负责人'} · ${esc(country(c))}</small></div></div>`:'';
+    if(view==='inbox'){
+      const need=c.id==='main'?`<span class="badge ${c.intent?'green':'gray'}">${c.intent?'优先跟进 · 待销售核实':'正在收集采购信息'}</span>${fieldsMarkup()}`:`<p>${esc(c.summary)}</p>`;
+      const signals=c.id==='main'&&c.intent?`<div class="signal-box"><b>转给销售的依据</b><ul>${c.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>`:'';
+      return `<aside class="side-panel">${panelBlock('客户需求',`客户自述 · v${c.version}`,need)}${c.owner?panelBlock('分配与接手','明确谁来继续跟进',signals+owner+'<button class="secondary full" data-action="goto-sales">进入销售跟进 →</button>'):''}${panelBlock('回复依据','产品资料与接待规则，仅内部可见',knowledgeContext())}</aside>`;
+    }
+    const tasks=tasksMarkup(c,true)+(c.id==='main'&&c.owner?`<form id="followup-form" class="date-form"><label for="followup-date">下次跟进时间</label><div><input type="datetime-local" id="followup-date" value="2026-10-15T10:00" required><button type="submit">设跟进</button></div></form>`:'');
+    const guidance=guidanceCards(c,true)||'<p class="inline-note">Leon 发来的建议会显示在这里。仅内部可见。</p>';
+    return `<aside class="side-panel">${panelBlock('当前负责人','同一会话继续沟通',owner)}${panelBlock('主管指导','确认收到后，由你继续落实',guidance,'internal-block')}${panelBlock('待办与跟进',`${c.tasks.filter(t=>t.status!=='done').length} 项待处理`,tasks)}${panelBlock('需求与资料','有变更时按最新版本核实',`<details><summary class="text-btn">客户需求摘要 · v${c.version}</summary>${c.id==='main'?fieldsMarkup():`<p class="inline-note">${esc(c.summary)}</p>`}</details>${c.id==='main'?knowledgeContext():''}`)}<button class="outline full" data-view="manager">查看主管管理台 →</button></aside>`;
+  }
+  function chatView() {
+    const c=current();
+    if(view==='sales'&&c.owner!==selectedOwner){
+      return `<div class="chat-layout">${contactList({id:'none'})}<section class="chat-pane"><div class="empty-chat"><h3>暂无分配给${esc(name(selectedOwner))}的会话</h3><p>先在 AI 接待现场完成询盘，或由 Leon 分配客户。</p><button class="secondary" data-view="inbox" style="margin-top:18px">返回接待现场 →</button></div></section><aside class="side-panel"><h3>我的跟进</h3><div class="empty-small">客户分配后，在这里查看需求、待办与主管指导。</div></aside></div>`;
+    }
+    return `<div class="chat-layout">${contactList(c)}<section class="chat-pane" aria-label="客户聊天"><div class="section-header"><strong>客户对话</strong><span>对外沟通 · 英文 / 中文辅助</span></div><div class="chat-head"><span class="avatar green">${c.initial}</span><div><b>${esc(c.name)}</b><small>${esc(c.company)} · ${esc(country(c))}</small></div><div class="right"><button class="toggle" data-action="translate">${translations?'隐藏中文':'显示中文'}</button></div></div><div class="chat-subline"><strong>WhatsApp 风格预览</strong><span>左侧买家 · 右侧辰陆</span><span>双勾为模拟</span></div>${c.mode==='waiting'?`<div class="pause-banner"><span>已分给${esc(name(c.owner))} · AI 暂停，等待接手</span><button data-action="takeover">确认接手</button></div>`:c.mode==='human'?`<div class="pause-banner"><span>${esc(name(c.owner))} 已接手 · AI 自动回复已暂停</span><span class="badge green">人工跟进</span></div>`:''}${messagesMarkup(c)}${c.id==='main'&&c.step>=2&&c.mode==='ai'?`<div class="scenario-option"><span>补充体验 · 客户咨询装载方式</span><button data-action="kb-customer-question" ${c.pending||kbAsked?'disabled':''}>${kbAsked?'已演示知识库回答':'模拟询问：爬梯还是可拆鹅颈？'}</button></div>`:''}${composer(c)}</section>${salesPanel(c)}</div>`;
+  }
+  function auditMarkup(c) {
+    return c.audit.length?`<ol class="audit">${[...c.audit].reverse().map(a=>`<li><time>${esc(a.time)} · 演示时钟</time>${esc(a.text)}</li>`).join('')}</ol>`:'<div class="empty-small">后续分配、接手与指导操作<br>会出现在这里。</div>';
+  }
+  function managerView() {
+    const cases=allCases();
+    if(!cases.some(c=>c.id===selectedId)) selectedId=cases[0].id;
+    const c=current(); const rows=filter?cases.filter(c=>c.owner===filter):cases;
+    return `<div class="manager"><div class="manager-header"><div><div class="eyebrow">TEAM OVERVIEW</div><h2>谁在接，怎么聊，下一步做什么。</h2><p>查看原话，及时指导。以下统计仅来自本页 ${cases.length} 条模拟会话。</p></div><div class="manager-person"><span class="avatar">L</span><div>Leon<small>管理视角 · 全体会话</small></div></div></div><div class="team-grid">${D.TEAM.map(p=>{const own=cases.filter(c=>c.owner===p.id);const n=own.reduce((a,c)=>a+unread(c),0);return `<button class="team-card ${filter===p.id?'active':''}" data-action="filter-owner" data-id="${p.id}"><div class="team-card-top"><span class="avatar">${p.initial}</span><div><b>${p.name}</b><small>${p.region} · 演示分工</small></div></div><div class="team-counts"><div><strong>${own.length}</strong><span>负责会话</span></div><div><strong>${cases.reduce((a,c)=>a+c.messages.filter(m=>m.role==='sales'&&(m.by===p.id||m.by===p.name)).length,0)}</strong><span>人工回复</span></div></div><div class="team-card-foot ${n||own.some(c=>c.mode==='waiting')?'attention':''}">${n?`${n} 条指导待确认`:own.some(c=>c.mode==='waiting')?'有新询盘待接手':own.length?'点击查看交流':'等待分配询盘'}</div></button>`;}).join('')}</div><div class="manager-grid"><div><div class="manager-table"><div class="table-head"><strong>${filter?`${name(filter)}的会话`:'全部客户会话'} <span class="count">${rows.length}</span></strong>${filter?'<button data-action="clear-filter">查看全部</button>':'<span class="badge gray">全部为模拟数据</span>'}</div><table><thead><tr><th>客户 / 询购车型</th><th>负责人</th><th>跟进状态</th><th>交流与指导</th></tr></thead><tbody>${rows.map(row=>`<tr class="${row.id===c.id?'selected':''}"><td><strong>${esc(row.name)}${row.id==='main'?' <span class="badge green">主线</span>':''}</strong><small>${esc(product(row))} · ${esc(country(row))}</small></td><td>${esc(name(row.owner))}<small>${unread(row)?`${unread(row)} 条指导待确认`:row.guidance.length?'指导已确认':''}</small></td><td><span class="badge ${row.mode==='waiting'||row.flag==='attention'?'amber':'gray'}">${esc(status(row))}</span>${row.tasks.find(t=>t.id==='followup')?`<small>下次：${esc(row.tasks.find(t=>t.id==='followup').due)}</small>`:''}</td><td><button data-action="inspect" data-id="${row.id}">查看聊天 →</button></td></tr>`).join('')||'<tr><td colspan="4"><div class="empty-small">暂无分配会话</div></td></tr>'}</tbody></table></div><div class="control-tip"><strong>现场可以这样试：</strong><br>点开业务员的聊天 → 留一条内部指导 → 切到业务员工作台确认收到。<br>主线还可以改派负责人，未完成待办和未读指导会一起交接。</div><p class="inline-note">人工回复数是本页消息计数，不代表真实工作量或业绩。此处“视角切换”用于演示，生产版需要独立登录与权限校验。</p></div><section class="manager-detail"><div class="detail-heading"><div><strong>${esc(c.name)} · ${esc(product(c))}</strong><small>${esc(name(c.owner))}负责 · ${esc(summary(c))}</small></div><span class="badge ${c.mode==='waiting'?'amber':'green'}">${esc(status(c))}</span></div><div class="detail-tabs"><button data-detail="chat" class="${detailTab==='chat'?'active':''}">对外聊天</button><button data-detail="tasks" class="${detailTab==='tasks'?'active':''}">待办 ${c.tasks.length}</button><button data-detail="audit" class="${detailTab==='audit'?'active':''}">操作记录 ${c.audit.length}</button><button data-action="translate">${translations?'隐藏中文':'显示中文'}</button></div>${detailTab==='chat'?messagesMarkup(c,true):`<div class="detail-task-area">${detailTab==='tasks'?tasksMarkup(c):auditMarkup(c)}</div>`}<form class="guidance-form" id="guidance-form"><div class="section-title">给${esc(name(c.owner))}的内部指导 <small>客户不可见</small></div><textarea id="guidance-text" aria-label="给业务员的内部指导" maxlength="1200" placeholder="例如：先确认实际到港时间，核实配置和运费后再报 CIF。" ${c.owner?'':'disabled'}>${esc(c.id==='main'?defaultGuidance:`先把${product(c)}的关键参数和客户采购节点核实清楚。涉及配置、价格和交期的回复，确认后再发给客户。`)}</textarea><div class="draft-actions"><span>发送给当前负责人，并记录确认状态</span><button type="submit" class="primary" ${!c.owner?'disabled':''}>发送内部指导 ↗</button></div>${guidanceCards(c)}<button class="text-btn" type="button" data-action="goto-sales" ${!c.owner?'disabled':''}>以${esc(name(c.owner))}视角查看 →</button></form>${c.id==='main'?`<div class="reassign-box"><label for="assign-to">改派负责人</label><select id="assign-to">${D.TEAM.map(p=>`<option value="${p.id}" ${p.id===c.owner?'selected':''}>${p.name} · ${p.region}</option>`).join('')}</select><button data-action="reassign">确认改派</button></div>`:''}</section></div></div>`;
+  }
+  const productNames={lowbed:'低平板半挂车',flatbed:'平板半挂车',cement:'散装水泥半挂车',dump:'自卸半挂车',tanker:'油罐半挂车',howo:'HOWO 卡车',all:'通用规则'};
+  function knowledgeView() {
+    const active=kb.documents.filter(d=>d.status==='published'&&d.enabled);
+    const docs=kb.documents.filter(d=>(kbFilter==='all'||(kbFilter==='active'?d.status==='published'&&d.enabled:d.status==='draft'))&&(!kbQuery||`${d.title} ${d.content} ${d.keywords.join(' ')} ${productNames[d.product]}`.toLowerCase().includes(kbQuery.toLowerCase())));
+    const doc=kbDrafts[kbSelected]||K.getDocument(kb,kbSelected)||{id:'new',title:'',product:'lowbed',category:'产品资料',content:'',answerEn:'',keywords:[],source:'业务整理 · 演示资料',status:'draft',enabled:false,revision:0};
+    const original=K.getDocument(kb,kbSelected);
+    const isActive=original?.status==='published'&&original.enabled;
+    const statusLabel=original?.status==='published'?(original.enabled?'演示中启用':'已停用'):'草稿 · 待确认';
+    const testResult=kbTestResult?`<div class="kb-answer ${kbTestResult.status==='answered'?'answered':'needs-review'}"><span class="badge ${kbTestResult.status==='answered'?'green':'amber'}">${kbTestResult.status==='answered'?'找到可用资料':kbTestResult.status==='needs_review'?'需要人工核实':'暂无可靠依据'}</span><div class="kb-answer-copy"><label>模拟英文回复</label><p>${esc(kbTestResult.answer||'Let me check with our team so I can give you the right information.')}</p><div class="translation">${esc(kbTestResult.translation||'这点我先和同事确认，核实后再回复你。')}</div></div><div class="kb-citations"><strong>回答依据</strong>${kbTestResult.sources.length?kbTestResult.sources.map(c=>`<article class="kb-citation">${sourceChips([c])}<p>${esc(c.excerpt)}</p></article>`).join(''):'<p>未引用任何资料，不补写产品事实。</p>'}</div><p class="field-help">${esc(kbTestResult.reason)}</p></div>`:'<div class="kb-empty"><strong>先问一个买家常问的问题</strong><p>比如“爬梯和可拆鹅颈有什么区别？”<br>试问结果会显示答复和引用的资料版本。</p></div>';
+    return `<div class="knowledge-shell"><div class="knowledge-overview"><div><span>可用资料</span><strong>${active.length}<small> / ${kb.documents.length} 篇</small></strong><p>仅启用的演示版本参与检索</p></div><div><span>待确认草稿</span><strong>${kb.documents.filter(d=>d.status==='draft').length}<small> 篇</small></strong><p>修改后重新确认，再用于回答</p></div><div><span>回答原则</span><strong class="text-metric">有依据再答</strong><p>配置、价格与交期保留人工核验</p></div></div>
+    <div class="knowledge-layout"><aside class="kb-list"><div class="kb-list-head"><h2>资料目录</h2><button class="secondary" data-action="kb-new">＋ 新建</button></div><label class="sr-only" for="kb-search">搜索知识库资料</label><input class="kb-search-input" id="kb-search" type="search" placeholder="搜索车型、装载方式…" value="${esc(kbQuery)}"><div class="kb-filters" aria-label="资料状态">${[['all','全部'],['active','可用'],['draft','草稿']].map(([id,label])=>`<button data-action="kb-filter" data-id="${id}" class="${kbFilter===id?'active':''}">${label}</button>`).join('')}</div><div class="kb-documents">${docs.map(d=>`<button class="kb-doc-item ${d.id===kbSelected?'active':''}" data-action="kb-select" data-id="${d.id}"><span class="kb-doc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6ZM14 3v5h4M9 12h6M9 16h6"/></svg></span><span><b class="kb-doc-title">${esc(d.title)}</b><span class="kb-doc-meta">${esc(productNames[d.product])} · v${d.revision}</span><span class="badge ${d.status==='draft'?'amber':d.enabled?'green':'gray'}">${d.status==='draft'?'草稿':d.enabled?'演示中启用':'已停用'}</span></span></button>`).join('')||'<div class="kb-empty">没有找到资料，换个关键词试试。</div>'}</div><div class="kb-list-footer"><button class="outline full" data-action="kb-import">导入文本资料</button><input type="file" id="kb-file" accept=".txt,.md,text/plain,text/markdown" hidden><p class="field-help">支持 TXT / Markdown，最大 64 KB。仅在本页读取。</p></div></aside>
+    <section class="kb-editor"><div class="kb-editor-head"><div><span class="section-kicker">资料编辑</span><h2>${esc(original?.title||'新建知识资料')}</h2></div><span class="badge ${isActive?'green':'amber'}">${statusLabel}</span></div>${kbCitation?`<div class="kb-statusbar">聊天记录引用 v${kbCitation.revision}，当前资料为 v${original?.revision||'—'}。${kbCitation.revision!==original?.revision?'历史引用保留当时版本；更新不会改写已发送消息。':'可在下方查看该版本的资料。'}</div>`:''}
+    <form class="kb-form" id="kb-edit-form" novalidate><div class="form-group"><label for="kb-title">资料标题</label><input id="kb-title" name="title" maxlength="100" value="${esc(doc.title)}" placeholder="例如：低平板装载方式说明"></div><div class="form-row"><div class="form-group"><label for="kb-product">适用产品</label><select id="kb-product" name="product">${Object.entries(productNames).map(([id,l])=>`<option value="${id}" ${doc.product===id?'selected':''}>${l}</option>`).join('')}</select></div><div class="form-group"><label for="kb-category">资料分类</label><select id="kb-category" name="category">${['产品资料','接待规则','报价须知'].map(l=>`<option ${doc.category===l?'selected':''}>${l}</option>`).join('')}</select></div></div><div class="form-group"><label for="kb-content">中文业务知识</label><textarea id="kb-content" name="content" rows="6" maxlength="8000" placeholder="写清能回答的内容和需要人工核实的部分。">${esc(doc.content)}</textarea></div><div class="form-group"><label for="kb-answer-en">英文参考答复</label><textarea id="kb-answer-en" name="answerEn" rows="5" maxlength="8000" lang="en" placeholder="Write a short, natural reply for the buyer.">${esc(doc.answerEn)}</textarea><span class="field-help">当前演示命中资料后，采用这段已编写的英文；不会自动翻译新内容。</span></div><div class="form-group"><label for="kb-keywords">检索关键词</label><input id="kb-keywords" name="keywords" value="${esc(Array.isArray(doc.keywords)?doc.keywords.join(', '):doc.keywords)}" placeholder="用逗号分隔，如 ramps, gooseneck, 爬梯"></div><div class="form-group"><label for="kb-source">资料来源</label><input id="kb-source" name="source" maxlength="160" value="${esc(doc.source)}"></div><div class="form-feedback" id="kb-feedback" role="status">${esc(kbFeedback||'本页为示例资料，实际内容须由辰陆确认。')}</div><div class="kb-actions"><button class="primary" type="submit">保存为草稿</button><button type="button" class="secondary" data-action="kb-publish" ${!original||original.status==='published'||kbDrafts[kbSelected]?'disabled':''}>确认并发布演示版</button>${original?.status==='published'?`<button class="outline" type="button" data-action="kb-toggle" ${kbDrafts[kbSelected]?'disabled':''}>${original.enabled?'停用资料':'重新启用'}</button>`:''}</div><p class="field-help">流程：编辑 → 保存草稿 → 确认并发布 → 试问验证。刷新页面会还原演示资料。</p></form>${kb.audit.length?`<details class="kb-audit"><summary>资料操作记录 · ${kb.audit.length}</summary>${kb.audit.slice(-4).reverse().map(a=>`<p>${esc(({save_draft:'保存草稿',create_draft:'新建草稿',publish:'发布版本',enable:'启用资料',disable:'停用资料'})[a.action]||a.action)} · ${esc(a.title)} · v${a.revision}</p>`).join('')}</details>`:''}</section>
+    <aside class="kb-test"><div class="kb-test-head"><span class="section-kicker">回答测试</span><h2>资料能回答什么？</h2><p>先在这里验证，再用于客户接待。</p></div><form id="kb-test-form"><label for="kb-question">模拟客户问题</label><textarea id="kb-question" rows="4" maxlength="700">${esc(kbQuestion)}</textarea><div class="kb-suggestions"><button type="button" data-action="kb-preset" data-id="loading">装载方式</button><button type="button" data-action="kb-preset" data-id="price">询问价格</button><button type="button" data-action="kb-preset" data-id="unknown">没有资料的问题</button></div><button type="submit" class="primary full">检索资料并试答 →</button></form><div id="kb-test-result">${testResult}</div><div class="kb-statusbar"><strong>本地检索演示</strong><p>只使用已启用的资料和预写双语答复。停用或保存新版本后，重新试问会得到相应结果。</p></div></aside></div></div>`;
+  }
+  function readKnowledgeForm() {
+    const form=$('#kb-edit-form');
+    if(!form)return null;
+    const values=Object.fromEntries(new FormData(form));
+    return {...values,keywords:String(values.keywords).split(/[,，\n]/).map(x=>x.trim()).filter(Boolean),...(kbSelected==='new'?{}:{id:kbSelected})};
+  }
+  function invalidateKnowledgeOutput() {
+    kbTestResult=null;
+    if(state.pending){
+      clearTimeout(timer);
+      D.takeover(state,state.owner||'a');
+      state.mode='waiting';
+      state.waitingReason='knowledge-update';
+      state.notice=`资料已更新，待发自动回复已取消。已分给${name(state.owner)}，请接手核实后继续回复客户。`;
+      state.audit.at(-1).text=`资料更新导致待发 AI 回复取消；已分给${name(state.owner)}，等待确认接手与人工核实。`;
+      toast(state.notice);
+    }
+  }
+  function queueReply() {
+    if(!state.pending)return;
+    const captured=session,token=state.pending.token,pendingState=state,revision=kb.revision;
+    clearTimeout(timer);
+    timer=setTimeout(()=>{
+      if(captured===session&&state===pendingState&&kb.revision===revision&&D.flushAI(state,token))render();
+    },1200);
+  }
+  function simulateKnowledgeQuestion() {
+    if(state.mode!=='ai'||state.pending||kbAsked)return;
+    const question='For my low-bed trailer, what is the difference between ramps and a detachable gooseneck?';
+    D.receive(state,'knowledge-loading-question',question,'低平板挂车用爬梯和可拆鹅颈，有什么区别？');
+    const result=K.askKnowledge(kb,question);
+    state.pending={token:state.epoch,reply:result.answer||'Let me check the loading options with our team and get back to you.',zh:result.translation||'我先和同事确认一下装载方案，再回复你。',sources:result.sources,sourceLabel:'知识库回答依据'};
+    kbAsked=true;queueReply();render();
+  }
+
+  function render() {
+    const previousLogs=renderedView===view?new Map([...document.querySelectorAll('[data-chat-log]')].map(el=>[el.dataset.chatLog,{top:el.scrollTop,atBottom:el.scrollHeight-el.clientHeight-el.scrollTop<60}])):new Map();
+    if(view==='inbox') selectedId='main';
+    const pageInfo={inbox:['AI 接待','CUSTOMER INBOX','把新询盘，接成有效需求。','AI 先接待、补齐信息；采购意向明确后，由业务员继续谈。'],sales:['销售跟进','MY WORKSPACE','接过上下文，继续把生意谈好。','客户对话、主管建议与下一步待办，分开看，接着做。'],manager:['团队指导','TEAM WORKSPACE','看清每个人怎么聊，及时给出指导。','从会话原话了解跟进情况，给当前负责人留下内部建议。'],knowledge:['产品知识库','KNOWLEDGE BASE','先把资料整理好，AI 才有据可答。','产品知识、接待规则与报价边界，在这里维护、发布和试问。']}[view];
+    $('#page-title').textContent=pageInfo[0];$('#page-eyebrow').textContent=pageInfo[1];$('#page-heading').textContent=pageInfo[2];$('#page-description').textContent=pageInfo[3];
+    $('.walkthrough').hidden=view==='knowledge';
+    const stage=state.guidance.length?3:state.mode==='human'?2:state.intent?1:0;
+    const labels=[['询盘接待','双语沟通与需求采集'],['意向分配','理由清楚，归属明确'],['人工跟进','接管后 AI 停止回复'],['主管指导','看交流，也能带团队']];
+    $('#steps').innerHTML=labels.map(([a,b],i)=>`<div class="step ${stage===i?'active':stage>i?'done':''}"><span class="step-num">${stage>i?'✓':`0${i+1}`}</span><div><b>${a}</b><small>${b}</small></div></div>`).join('');
+    let label='开始接待演示', hint='从一条 Facebook 询盘开始';
+    if(state.pending){label='AI 正在准备回复';hint='此时也可以点“立即接管”'}
+    else if(state.mode==='waiting'){label='进入业务员接手';hint=state.waitingReason==='knowledge-update'?'资料已更新，请业务员核实后继续':state.intent?'采购信号明确，已暂停 AI':'AI 已暂停，等待业务员核实'}
+    else if(state.step<4&&state.step>0){label=['','补充重量与目的地','补充尺寸与工况','模拟正式询价'][state.step];hint=`下一条：${D.SCENARIO[state.step].title}`}
+    else if(state.step===4){label='模拟客户修改尺寸';hint='验证接管后不会再自动回复'}
+    else if(state.step===5){label=view==='manager'?'查看业务员工作台':'查看 Leon 管理台';hint=state.guidance.length?'看看业务员是否确认收到指导':'主线完成，接着查看团队与指导'}
+    $('#next').innerHTML=`${esc(label)} <span>→</span>`;$('#next').disabled=!!state.pending;$('#step-hint').textContent=hint;
+    document.querySelectorAll('[data-view]').forEach(b=>{b.classList.toggle('active',b.dataset.view===view);if(b.dataset.view===view)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+    $('#view-context').innerHTML=`<span class="context-pill">${view==='manager'?'Leon · 全体会话':view==='sales'?`${name(selectedOwner)} · 我的客户`:view==='knowledge'?'演示资料 · 仅本页生效':'Facebook → WhatsApp'}</span>`;
+    $('#workspace-body').innerHTML=view==='manager'?managerView():view==='knowledge'?knowledgeView():chatView();
+    document.querySelectorAll('[data-chat-log]').forEach(el=>{const prior=previousLogs.get(el.dataset.chatLog);el.scrollTop=prior&&!prior.atBottom?prior.top:el.scrollHeight;});
+    renderedView=view;
+  }
+  function setView(next) {
+    view=next;
+    if(next==='sales'){
+      const c=current(); selectedOwner=c.owner||state.owner||'a';
+      if(!c.owner) selectedId=state.step?'main':(allCases().find(x=>x.owner===selectedOwner)?.id||'main');
+    }
+    render();
+  }
+  function advance() {
+    if(state.pending)return;
+    if(state.mode==='waiting'){selectedId='main';selectedOwner=state.owner;setView('sales');toast('先点“确认接手”，再继续客户对话。');return;}
+    if(state.step>=5){selectedId='main';setView(view==='manager'?'sales':'manager');return;}
+    D.advance(state); selectedId='main'; if(view==='manager'||view==='knowledge')view='inbox';
+    if(state.pending){
+      const sources=K.sourceFor(kb,'lowbed-intake');
+      if(sources.length){state.pending.sources=sources;state.pending.sourceLabel='接待流程参考';queueReply();}
+      else{D.takeover(state);state.mode='waiting';state.notice='接待资料未启用，已暂停 AI，请业务员接手核实。';toast(state.notice);}
+    }else if(state.mode==='waiting'&&state.intent){
+      const reply=state.messages.at(-1);reply.sources=[...K.sourceFor(kb,'reception-policy'),...K.sourceFor(kb,'quote-policy')];reply.sourceLabel='交接规则参考';
+    }
+    render();
+    if(!state.pending&&state.intent&&state.mode==='waiting')toast('识别到明确采购信号，已分配业务员 A；AI 暂停。');
+    else if(state.step===5)toast('需求卡已更新为 3.5 m；没有新增自动回复。');
+  }
+  document.addEventListener('click',event=>{
+    const button=event.target.closest('button'); if(!button||button.disabled)return;
+    if(button.dataset.view){setView(button.dataset.view);return;}
+    if(button.dataset.detail){detailTab=button.dataset.detail;render();return;}
+    const c=current(),action=button.dataset.action; let refresh=true;
+    switch(action){
+      case 'help':$('#help').showModal();return;
+      case 'close-help':$('#help').close();return;
+      case 'reset':initialize();render();toast('已重置全部模拟聊天、分配和内部指导。');return;
+      case 'next':advance();return;
+      case 'translate':translations=!translations;break;
+      case 'kb-customer-question':simulateKnowledgeQuestion();return;
+      case 'open-source':{
+        kbSelected=button.dataset.id;kbCitation=button.dataset.revision?{revision:Number(button.dataset.revision)}:null;kbFeedback='';setView('knowledge');return;
+      }
+      case 'kb-select':kbSelected=button.dataset.id;kbCitation=null;kbFeedback='';break;
+      case 'kb-filter':kbFilter=button.dataset.id;break;
+      case 'kb-new':kbSelected='new';kbCitation=null;kbFeedback='先填写中英文内容，保存后可确认发布。';break;
+      case 'kb-import':$('#kb-file').click();return;
+      case 'kb-publish':
+        if(K.publishDocument(kb,kbSelected)){kbFeedback='演示版本已发布，可以在右侧重新试问。';invalidateKnowledgeOutput();}else kbFeedback='请先保存完整的中英文资料，再确认发布。';break;
+      case 'kb-toggle':
+        if(K.toggleDocument(kb,kbSelected)){invalidateKnowledgeOutput();kbFeedback=K.getDocument(kb,kbSelected).enabled?'已重新启用，试问将使用这条资料。':'已停用，后续检索不会使用这条资料。';}break;
+      case 'kb-preset':
+        kbQuestion={loading:'For my low-bed trailer, what is the difference between ramps and a detachable gooseneck?',price:'What is your best price for 3 low-bed trailers?',unknown:'Can you repair a refrigerator compressor?'}[button.dataset.id];kbTestResult=null;break;
+      case 'select-case':selectedId=button.dataset.id;break;
+      case 'inspect':selectedId=button.dataset.id;detailTab='chat';break;
+      case 'filter-owner':filter=filter===button.dataset.id?null:button.dataset.id;if(filter){const chosen=allCases().find(x=>x.owner===filter);if(chosen)selectedId=chosen.id;}break;
+      case 'clear-filter':filter=null;break;
+      case 'takeover':if(D.takeover(c,c.owner||'a')){clearTimeout(timer);c.waitingReason=null;view='sales';selectedOwner=c.owner;}toast(c.notice);break;
+      case 'goto-sales':setView('sales');return;
+      case 'draft':D.createDraft(c);toast(c.notice);break;
+      case 'send-draft':{
+        const edited=$('#human-draft').value.trim();
+        if(!edited){toast('请填写回复内容。');return;}
+        if(!c.draft||c.draft.owner!==c.owner||c.draft.version!==c.version){toast('需求已更新，请重新准备回复。');return;}
+        if(edited===c.draft.text)D.sendDraft(c);else D.sendHuman(c,edited,'');
+        toast(c.notice);break;
+      }
+      case 'ack':D.acknowledgeGuidance(c,button.dataset.id,selectedOwner);toast(c.notice);break;
+      case 'complete-documents':D.completeTask(c,'documents');toast(c.notice);break;
+      case 'reassign':D.reassign(c,$('#assign-to').value);filter=null;selectedOwner=c.owner;toast(c.notice);break;
+      default:refresh=false;
+    }
+    if(refresh)render();
+  });
+  document.addEventListener('submit',event=>{
+    if(event.target.id==='kb-edit-form'){
+      event.preventDefault();const values=readKnowledgeForm();const result=K.saveDocument(kb,values);
+      if(result.ok){delete kbDrafts[kbSelected];kbSelected=result.document.id;kbCitation=null;kbFeedback='已保存为草稿。核对内容后，点“确认并发布演示版”。';invalidateKnowledgeOutput();}
+      else kbFeedback=result.error||'请补全标题、中英文内容及检索关键词。';
+      render();
+    }else if(event.target.id==='kb-test-form'){
+      event.preventDefault();kbQuestion=$('#kb-question').value.trim();
+      if(!kbQuestion){toast('先填写要试问的问题。');return;}
+      kbTestResult=K.askKnowledge(kb,kbQuestion);render();
+    }else if(event.target.id==='guidance-form'){
+      event.preventDefault();const c=current();D.addGuidance(c,$('#guidance-text').value);toast(c.notice);render();
+    } else if(event.target.id==='followup-form'){
+      event.preventDefault();const date=$('#followup-date').value;
+      if(!date||date<'2026-10-14T00:00'){toast('请选择演示日期 2026-10-14 或之后的跟进时间。');return;}
+      D.schedule(current(),date.replace('T',' '));toast(current().notice);render();
+    }
+  });
+  document.addEventListener('input',event=>{
+    if(event.target.closest('#kb-edit-form')){
+      kbDrafts[kbSelected]=readKnowledgeForm();$('#kb-feedback').textContent='有尚未保存的修改。保存后会变为草稿，需重新确认发布。';
+      for(const selector of ['[data-action="kb-publish"]','[data-action="kb-toggle"]']){const b=$(selector);if(b)b.disabled=true;}
+    }
+    if(event.target.id==='kb-question')kbQuestion=event.target.value;
+    if(event.target.id==='kb-search'){
+      const cursor=event.target.selectionStart;kbQuery=event.target.value;render();$('#kb-search').focus();if(cursor!==null)$('#kb-search').setSelectionRange(cursor,cursor);
+    }
+    if(event.target.id==='human-draft'&&current().draft){
+      const edited=event.target.value.trim()!==current().draft.text;
+      $('#draft-translation').textContent=edited?'英文已修改，请自行核对；原中文译文已隐藏。':current().draft.zh;
+    }
+  });
+  document.addEventListener('change',async event=>{
+    if(event.target.id==='kb-file'){
+      const file=event.target.files[0];if(!file)return;
+      if(!/\.(txt|md)$/i.test(file.name)||file.size>65536){toast('请选择不超过 64 KB 的 TXT 或 Markdown 文本。');return;}
+      const importedSession=session;
+      try{
+        const content=await file.text();if(importedSession!==session)return;
+        if(!content.trim()||content.includes('\0')){toast('文本为空或不是可读文本，请换一份资料。');return;}
+        kbSelected='new';kbDrafts.new={title:file.name.replace(/\.(txt|md)$/i,''),product:'lowbed',category:'产品资料',content,answerEn:'',keywords:[],source:`本地导入：${file.name}`};kbCitation=null;kbFeedback='文本已在本页读取。请补充英文参考答复和关键词，再保存、确认发布。';setView('knowledge');
+      }catch{toast('读取文本失败，请重试。');}
+      return;
+    }
+    if(event.target.id==='sales-person'){
+      selectedOwner=event.target.value;const assigned=allCases().find(c=>c.owner===selectedOwner);selectedId=assigned?.id||'main';render();
+    }
+  });
+  // Read-only snapshots for repeatable QA; no production integration or credentials.
+  Object.defineProperty(window,'__chenluDemo',{value:{snapshot:()=>structuredClone({state,examples,view,selectedOwner,selectedId,filter,kb,kbSelected,kbTestResult,kbAsked})}});
+  initialize();render();
+})();
+</script>
+</body>
+</html>
